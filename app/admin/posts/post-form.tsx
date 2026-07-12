@@ -9,18 +9,36 @@ type PostData = {
   published: boolean
 }
 
-export function PostForm({ initialData }: { initialData?: PostData }) {
+export default function PostForm({ 
+  initialData,
+  onSubmit,
+}: { 
+  initialData?: PostData
+  onSubmit?: (data: PostData) => Promise<{ error?: string }>
+}) {
   const [formData, setFormData] = useState<PostData>(initialData || {
     title: '',
     content: '',
     excerpt: '',
     published: false,
   })
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    // TODO: Add form submission logic
+    setIsLoading(true)
+    try {
+      if (onSubmit) {
+        const result = await onSubmit(formData)
+        if (result?.error) {
+          console.error('Form submission error:', result.error)
+        }
+      } else {
+        console.log('Form submitted:', formData)
+      }
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -58,9 +76,10 @@ export function PostForm({ initialData }: { initialData?: PostData }) {
 
       <button
         type="submit"
-        className="px-4 py-2 bg-blue-600 text-white rounded"
+        disabled={isLoading}
+        className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-50"
       >
-        Save Post
+        {isLoading ? 'Saving...' : 'Save Post'}
       </button>
     </form>
   )
