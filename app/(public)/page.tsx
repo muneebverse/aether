@@ -64,9 +64,10 @@ export default function Home() {
     <>
       {/* Animated Hero Section with Scroll Scrubber */}
       <ScrollScrubberHero
-        frameBasePath="/frames/aether/"
+        frameBasePath="/frames/aether/frame_"
         frameCount={60}
-        frameExtension="webp"
+        frameExtension=".webp"
+        frameNameFormat="padded"
         containerHeight="400vh"
       />
 
