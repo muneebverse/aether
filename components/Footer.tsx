@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './icons/BrandIcons';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -124,7 +125,7 @@ export default function Footer() {
                 aria-label="LinkedIn"
                 title="Follow on LinkedIn"
               >
-                <Linkedin size={20} />
+                <LinkedinIcon size={20} />
               </a>
               <a
                 href="https://github.com"
@@ -134,7 +135,7 @@ export default function Footer() {
                 aria-label="Github"
                 title="Visit GitHub"
               >
-                <Github size={20} />
+                <GithubIcon size={20} />
               </a>
             </div>
           </div>
