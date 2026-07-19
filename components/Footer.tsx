@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-aether-deep-teal text-aether-sky-white mt-24">
+    <footer className="bg-gradient-to-b from-aether-deep-teal to-aether-deep-teal bg-opacity-95 text-sky-white">
       <div className="container-aether py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -21,8 +21,8 @@ export default function Footer() {
               />
               <span className="font-display font-bold text-lg">AETHER</span>
             </div>
-            <p className="text-aether-sky-white text-opacity-70 text-sm">
-              Elevate your edge
+            <p className="text-sky-white text-opacity-70 text-sm leading-relaxed">
+              Transform your professional application from invisible to unmissable. Elevate to clarity.
             </p>
           </div>
 
@@ -31,18 +31,35 @@ export default function Footer() {
             <h4 className="font-display font-bold mb-4 text-aether-bright-cyan">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/services" className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors">
+                <Link 
+                  href="/services" 
+                  className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200"
+                >
                   Resume Optimization
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors">
+                <Link 
+                  href="/services" 
+                  className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200"
+                >
                   ATS Optimization
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors">
+                <Link 
+                  href="/services" 
+                  className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200"
+                >
                   LinkedIn Branding
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/services" 
+                  className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200"
+                >
+                  Career Strategy
                 </Link>
               </li>
             </ul>
@@ -53,31 +70,49 @@ export default function Footer() {
             <h4 className="font-display font-bold mb-4 text-aether-bright-cyan">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors">
+                <Link 
+                  href="/about" 
+                  className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors">
+                <Link 
+                  href="/blog" 
+                  className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors">
+                <Link 
+                  href="/contact" 
+                  className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200"
+                >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="#" 
+                  className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200"
+                >
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Connect */}
           <div>
             <h4 className="font-display font-bold mb-4 text-aether-bright-cyan">Connect</h4>
             <div className="flex gap-4">
               <a
-                href="mailto:hello@aether.com"
-                className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors"
+                href="mailto:contact@aether.studio"
+                className="p-2 rounded-lg bg-aether-electric-teal bg-opacity-20 text-aether-bright-cyan hover:bg-opacity-30 hover:text-sky-white transition-all duration-200"
                 aria-label="Email"
+                title="Email us"
               >
                 <Mail size={20} />
               </a>
@@ -85,46 +120,21 @@ export default function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors"
+                className="p-2 rounded-lg bg-aether-electric-teal bg-opacity-20 text-aether-bright-cyan hover:bg-opacity-30 hover:text-sky-white transition-all duration-200"
                 aria-label="LinkedIn"
+                title="Follow on LinkedIn"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                  <rect width="4" height="12" x="2" y="9" />
-                  <circle cx="4" cy="4" r="2" />
-                </svg>
+                <Linkedin size={20} />
               </a>
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-aether-sky-white hover:text-aether-bright-cyan transition-colors"
+                className="p-2 rounded-lg bg-aether-electric-teal bg-opacity-20 text-aether-bright-cyan hover:bg-opacity-30 hover:text-sky-white transition-all duration-200"
                 aria-label="Github"
+                title="Visit GitHub"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                  <path d="M9 18c-4.51 2-5-2-7-2" />
-                </svg>
+                <Github size={20} />
               </a>
             </div>
           </div>
@@ -132,13 +142,19 @@ export default function Footer() {
 
         {/* Divider */}
         <div className="border-t border-aether-bright-cyan border-opacity-20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-aether-sky-white text-opacity-70">
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-sky-white text-opacity-70">
             <p>&copy; {currentYear} AETHER. All rights reserved.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <Link href="#" className="hover:text-aether-bright-cyan transition-colors">
+              <Link 
+                href="#" 
+                className="hover:text-aether-bright-cyan transition-colors duration-200"
+              >
                 Privacy Policy
               </Link>
-              <Link href="#" className="hover:text-aether-bright-cyan transition-colors">
+              <Link 
+                href="#" 
+                className="hover:text-aether-bright-cyan transition-colors duration-200"
+              >
                 Terms of Service
               </Link>
             </div>
