@@ -353,3 +353,18 @@ label {
     padding: 0 16px;
   }
 }
+.btn {
+  /* ...existing rules... */
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+input, textarea, select {
+  min-height: 44px;
+  touch-action: manipulation;
+}
