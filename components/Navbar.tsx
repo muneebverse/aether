@@ -11,10 +11,10 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="sticky top-0 z-50 bg-aether-sky-white border-b border-aether-electric-teal border-opacity-10">
+    <nav className="sticky top-0 z-50 bg-sky-white border-b border-aether-electric-teal border-opacity-10 backdrop-blur-md bg-opacity-95">
       <div className="container-aether flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <Image
             src="/logos/aether-logo-icon.png"
             alt="AETHER Logo"
@@ -28,19 +28,31 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/services" className="text-aether-electric-teal hover:text-aether-bright-cyan font-body text-sm font-500 transition-colors">
+          <Link 
+            href="/services" 
+            className="text-aether-electric-teal hover:text-aether-bright-cyan font-500 text-sm transition-colors duration-200"
+          >
             Services
           </Link>
-          <Link href="/pricing" className="text-aether-electric-teal hover:text-aether-bright-cyan font-body text-sm font-500 transition-colors">
+          <Link 
+            href="/pricing" 
+            className="text-aether-electric-teal hover:text-aether-bright-cyan font-500 text-sm transition-colors duration-200"
+          >
             Pricing
           </Link>
-          <Link href="/about" className="text-aether-electric-teal hover:text-aether-bright-cyan font-body text-sm font-500 transition-colors">
+          <Link 
+            href="/about" 
+            className="text-aether-electric-teal hover:text-aether-bright-cyan font-500 text-sm transition-colors duration-200"
+          >
             About
           </Link>
-          <Link href="/blog" className="text-aether-electric-teal hover:text-aether-bright-cyan font-body text-sm font-500 transition-colors">
+          <Link 
+            href="/blog" 
+            className="text-aether-electric-teal hover:text-aether-bright-cyan font-500 text-sm transition-colors duration-200"
+          >
             Blog
           </Link>
-          <Link href="/contact" className="btn btn-primary">
+          <Link href="/contact" className="btn btn-primary text-sm">
             Contact Us
           </Link>
         </div>
@@ -57,20 +69,40 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-aether-sky-white border-t border-aether-electric-teal border-opacity-10 px-6 py-4 space-y-4">
-          <Link href="/services" className="block text-aether-electric-teal hover:text-aether-bright-cyan transition-colors">
+        <div className="md:hidden bg-sky-white border-t border-aether-electric-teal border-opacity-10 px-6 py-4 space-y-4 animate-fade-in-down">
+          <Link 
+            href="/services" 
+            className="block text-aether-electric-teal hover:text-aether-bright-cyan font-500 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
             Services
           </Link>
-          <Link href="/pricing" className="block text-aether-electric-teal hover:text-aether-bright-cyan transition-colors">
+          <Link 
+            href="/pricing" 
+            className="block text-aether-electric-teal hover:text-aether-bright-cyan font-500 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
             Pricing
           </Link>
-          <Link href="/about" className="block text-aether-electric-teal hover:text-aether-bright-cyan transition-colors">
+          <Link 
+            href="/about" 
+            className="block text-aether-electric-teal hover:text-aether-bright-cyan font-500 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
             About
           </Link>
-          <Link href="/blog" className="block text-aether-electric-teal hover:text-aether-bright-cyan transition-colors">
+          <Link 
+            href="/blog" 
+            className="block text-aether-electric-teal hover:text-aether-bright-cyan font-500 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
             Blog
           </Link>
-          <Link href="/contact" className="btn btn-primary w-full">
+          <Link 
+            href="/contact" 
+            className="btn btn-primary w-full"
+            onClick={() => setIsOpen(false)}
+          >
             Contact Us
           </Link>
         </div>
