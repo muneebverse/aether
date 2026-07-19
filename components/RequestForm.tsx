@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { AlertCircle, CheckCircle2, Loader } from 'lucide-react';
 
 const SERVICE_OPTIONS = [
-  'Portfolio & Website', 'CV & Career Documents',
-  'Presentation / Slide Deck', 'LinkedIn Optimization',
-  'Restaurant Website', 'Other',
+  'Portfolio & Website',
+  'CV & Career Documents',
+  'Presentation / Slide Deck',
+  'LinkedIn Optimization',
+  'Other',
 ];
 
 export default function RequestForm({
@@ -28,7 +31,7 @@ export default function RequestForm({
   const [error, setError] = useState<string | null>(null);
 
   const isUrgent = desiredDate
-    ? (new Date(desiredDate).getTime() - Date.now()) / 86400000 <= 5
+    ? (new Date(desiredDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24) <= 5
     : false;
 
   async function handleSubmit(e: React.FormEvent) {
@@ -48,7 +51,11 @@ export default function RequestForm({
     try {
       const res = await fetch('/api/leads', { method: 'POST', body: formData });
       const data = await res.json();
-      if (!res.ok) { setError(data.error || 'Something went wrong. Please try again.'); setLoading(false); return; }
+      if (!res.ok) {
+        setError(data.error || 'Something went wrong. Please try again.');
+        setLoading(false);
+        return;
+      }
       onSuccess(data.order_id);
     } catch {
       setError('Network error. Please check your connection and try again.');
@@ -57,59 +64,140 @@ export default function RequestForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Error Alert */}
       {error && (
-        <p className="text-sm text-aether-alert bg-red-50 border border-red-200 rounded-tight px-4 py-2.5">{error}</p>
+        <div className="flex gap-3 p-4 rounded-lg bg-red-50 border border-red-200">
+          <AlertCircle size={20} className="text-red-600 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-red-800">{error}</p>
+        </div>
       )}
 
+      {/* Name & Email Row */}
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label>Your Name</label>
-          <input type="text" required value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g., Muneeb" />
+          <label className="block text-sm font-semibold text-deep-ink mb-2">Your Name</label>
+          <input
+            type="text"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="e.g., Muneeb Sultan"
+            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink placeholder-neutral focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+          />
         </div>
         <div>
-          <label>Email</label>
-          <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
+          <label className="block text-sm font-semibold text-deep-ink mb-2">Email</label>
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@example.com"
+            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink placeholder-neutral focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+          />
         </div>
       </div>
 
+      {/* WhatsApp */}
       <div>
-        <label>WhatsApp Number</label>
-        <input type="tel" required value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} placeholder="+92 3XX XXXXXXX" />
+        <label className="block text-sm font-semibold text-deep-ink mb-2">WhatsApp Number</label>
+        <input
+          type="tel"
+          required
+          value={whatsapp}
+          onChange={(e) => setWhatsapp(e.target.value)}
+          placeholder="+92 3XX XXXXXXX"
+          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink placeholder-neutral focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+        />
       </div>
 
+      {/* Service Selection */}
       <div>
-        <label>Service</label>
-        <select required value={service} onChange={(e) => setService(e.target.value)}>
+        <label className="block text-sm font-semibold text-deep-ink mb-2">Service</label>
+        <select
+          required
+          value={service}
+          onChange={(e) => setService(e.target.value)}
+          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+        >
           <option value="">Select a service</option>
-          {SERVICE_OPTIONS.map((s) => <option key={s} value={s}>{s}</option>)}
+          {SERVICE_OPTIONS.map((s) => (
+            <option key={s} value={s}>
+              {s}
+            </option>
+          ))}
         </select>
       </div>
 
+      {/* Instructions */}
       <div>
-        <label>Instructions / Scope Details</label>
-        <textarea rows={4} value={instructions} onChange={(e) => setInstructions(e.target.value)} placeholder="Describe what you need..." />
+        <label className="block text-sm font-semibold text-deep-ink mb-2">Scope & Details</label>
+        <textarea
+          rows={4}
+          value={instructions}
+          onChange={(e) => setInstructions(e.target.value)}
+          placeholder="Tell us what you need. The more detail, the better."
+          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink placeholder-neutral focus:border-opacity-100 focus:border-aether-bright-cyan transition-all resize-none"
+        />
       </div>
 
+      {/* File Upload */}
       <div>
-        <label>Attach Files (optional)</label>
-        <input type="file" multiple onChange={(e) => setFiles(Array.from(e.target.files || []))} className="text-sm touch-manipulation" />
-        {files.length > 0 && <p className="text-xs text-deep-ink text-opacity-60 mt-1">{files.length} file(s) selected</p>}
+        <label className="block text-sm font-semibold text-deep-ink mb-2">Attach Files (Optional)</label>
+        <div className="relative">
+          <input
+            type="file"
+            multiple
+            onChange={(e) => setFiles(Array.from(e.target.files || []))}
+            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-sm text-deep-ink file:mr-3 file:px-3 file:py-1.5 file:rounded-md file:bg-aether-electric-teal file:text-white file:font-semibold file:cursor-pointer hover:file:bg-aether-deep-teal transition-all"
+          />
+        </div>
+        {files.length > 0 && (
+          <p className="mt-2 text-sm text-aether-electric-teal font-medium flex items-center gap-1">
+            <CheckCircle2 size={16} /> {files.length} file(s) selected
+          </p>
+        )}
       </div>
 
+      {/* Desired Date */}
       <div>
-        <label>Desired Completion Date</label>
-        <input type="date" required value={desiredDate} onChange={(e) => setDesiredDate(e.target.value)} min={new Date().toISOString().split('T')[0]} />
-        {isUrgent && <p className="text-xs text-aether-alert mt-1.5">⚡ Rush request (within 5 days) — a rush fee may apply.</p>}
+        <label className="block text-sm font-semibold text-deep-ink mb-2">When do you need this?</label>
+        <input
+          type="date"
+          required
+          value={desiredDate}
+          onChange={(e) => setDesiredDate(e.target.value)}
+          min={new Date().toISOString().split('T')[0]}
+          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+        />
+        {isUrgent && (
+          <p className="mt-2 text-xs text-aether-alert flex items-center gap-1 font-medium">
+            ⚡ Rush request (within 5 days) — a rush fee may apply
+          </p>
+        )}
       </div>
 
+      {/* Submit Button */}
       <button
         type="submit"
         disabled={loading}
-        className="btn btn-primary w-full min-h-[48px] touch-manipulation active:scale-[0.98] transition-transform"
+        className="w-full py-3 px-4 bg-gradient-to-r from-aether-electric-teal to-aether-bright-cyan hover:from-aether-deep-teal hover:to-aether-electric-teal text-white font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center gap-2 min-h-[48px]"
       >
-        {loading ? 'Submitting...' : 'Submit Request'}
+        {loading ? (
+          <>
+            <Loader size={18} className="animate-spin" />
+            Submitting...
+          </>
+        ) : (
+          'Submit Request'
+        )}
       </button>
+
+      {/* Trust Line */}
+      <p className="text-xs text-center text-neutral">
+        We'll review your request and follow up within 24 hours. Always.
+      </p>
     </form>
   );
 }
