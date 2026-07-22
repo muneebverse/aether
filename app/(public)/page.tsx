@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, Zap, Users, TrendingUp, Sparkles } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, CheckCircle2, Zap, Users, TrendingUp, Sparkles, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
 import Faq from '@/components/Faq';
 import { useEffect, useState } from 'react';
 
@@ -32,6 +33,27 @@ export default function Home() {
       icon: <TrendingUp className="text-aether-bright-cyan" size={32} />,
       title: 'Results-Driven',
       description: 'Get more interviews, better conversations, and the job offers you deserve.',
+    },
+  ];
+
+  // Non-numeric trust pillars — swap in real stats once you have enough
+  // orders/reviews behind you. Fabricated numbers ("500+ clients", "98%
+  // pass rate") do more damage than good the first time a client checks.
+  const trustPillars = [
+    {
+      icon: <MessageCircle className="text-aether-electric-teal" size={28} />,
+      title: 'You work directly with me',
+      description: 'No account managers, no outsourcing — every order is reviewed and delivered personally.',
+    },
+    {
+      icon: <Clock className="text-aether-electric-teal" size={28} />,
+      title: '5-7 day turnaround',
+      description: 'Rush delivery available if you\'re on a deadline — just flag it in your request.',
+    },
+    {
+      icon: <ShieldCheck className="text-aether-electric-teal" size={28} />,
+      title: 'Revisions until it\'s right',
+      description: 'Every tier includes revision rounds, so you\'re never stuck with a first draft.',
     },
   ];
 
@@ -70,21 +92,26 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section with Animated Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-sky-white pt-20">
-        {/* Animated Gradient Background */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-aether-electric-teal rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-aether-bright-cyan rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-aether-sky-cyan rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+      {/* Hero Section — background photo + gradient overlay */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        {/* Background photo. Drop your own image at /public/hero-nature.jpg
+            (see the note below the code block for where to get one free). */}
+        <div className="absolute inset-0 -z-20">
+          <Image
+            src="/hero-nature.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
+          {/* Teal gradient overlay so text stays readable over any photo */}
+          <div className="absolute inset-0 bg-gradient-to-r from-sky-white via-sky-white/90 to-aether-deep-teal/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-sky-white via-transparent to-transparent" />
         </div>
 
-        {/* Animated Background Grid */}
-        <div className="absolute inset-0 -z-10 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(rgba(0, 188, 212, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 188, 212, 0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}></div>
+        {/* Soft animated color accents, kept subtle now that there's a real photo */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-aether-bright-cyan rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="container-aether w-full">
@@ -109,12 +136,12 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div className={`flex flex-col sm:flex-row gap-4 ${isLoaded ? 'animate-fade-in-up animate-delay-300' : 'opacity-0'}`}>
-                <Link href="/services" className="btn btn-primary">
+                <Link href="/request" className="btn btn-primary">
                   Get Started
                   <ArrowRight size={18} className="ml-2" />
                 </Link>
-                <Link href="/about" className="btn btn-secondary">
-                  Learn More
+                <Link href="/services" className="btn btn-secondary">
+                  View Services
                 </Link>
               </div>
 
@@ -135,21 +162,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Visual - Animated Card */}
+            {/* Right Visual — floating glass card over the photo */}
             <div className={`hidden lg:block ${isLoaded ? 'animate-fade-in-down' : 'opacity-0'}`}>
               <div className="relative">
-                {/* Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-aether-electric-teal via-aether-bright-cyan to-aether-sky-cyan rounded-2xl blur-2xl opacity-30 animate-gradient-shift"></div>
 
-                {/* Card */}
-                <div className="relative bg-sky-white rounded-2xl p-8 border border-aether-electric-teal border-opacity-20">
-                  {/* Animated Heading Pill */}
+                <div className="relative bg-sky-white bg-opacity-90 backdrop-blur-md rounded-2xl p-8 border border-aether-electric-teal border-opacity-20 shadow-xl">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-aether-bright-cyan bg-opacity-10 border border-aether-bright-cyan border-opacity-30 mb-6">
                     <div className="w-2 h-2 bg-aether-bright-cyan rounded-full animate-pulse"></div>
-                    <span className="text-xs font-600 text-aether-electric-teal uppercase">Live on 1000+ profiles</span>
+                    <span className="text-xs font-600 text-aether-electric-teal uppercase">What you get</span>
                   </div>
 
-                  {/* Preview Content */}
                   <div className="space-y-4">
                     <div>
                       <h3 className="font-display font-bold text-2xl text-aether-deep-teal mb-2">Your Resume, Evolved</h3>
@@ -158,20 +181,18 @@ export default function Home() {
                       </p>
                     </div>
 
-                    {/* Stat Pills */}
                     <div className="grid grid-cols-2 gap-3 pt-4">
                       <div className="bg-aether-electric-teal bg-opacity-5 rounded-lg p-3 border border-aether-electric-teal border-opacity-10">
-                        <div className="text-2xl font-display font-bold text-aether-electric-teal">98%</div>
-                        <div className="text-xs text-deep-ink text-opacity-60">ATS Pass Rate</div>
+                        <div className="text-xl font-display font-bold text-aether-electric-teal">5-7 days</div>
+                        <div className="text-xs text-deep-ink text-opacity-60">Turnaround Time</div>
                       </div>
                       <div className="bg-aether-bright-cyan bg-opacity-5 rounded-lg p-3 border border-aether-bright-cyan border-opacity-10">
-                        <div className="text-2xl font-display font-bold text-aether-bright-cyan">5-7 days</div>
-                        <div className="text-xs text-deep-ink text-opacity-60">Turnaround Time</div>
+                        <div className="text-xl font-display font-bold text-aether-bright-cyan">1:1</div>
+                        <div className="text-xs text-deep-ink text-opacity-60">Direct Collaboration</div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Floating Elements */}
                   <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-aether-bright-cyan to-aether-sky-cyan rounded-full opacity-20 blur-xl animate-float"></div>
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tr from-aether-electric-teal to-aether-bright-cyan rounded-full opacity-15 blur-lg animate-float animate-delay-300"></div>
                 </div>
@@ -208,6 +229,37 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Trust Section — replaces fabricated stats/reviews with honest, verifiable claims */}
+      <section className="py-24 bg-aether-electric-teal bg-opacity-5">
+        <div className="container-aether">
+          <div className="text-center mb-16">
+            <h2 className="font-display font-bold text-4xl mb-4">What Working With Us Looks Like</h2>
+            <p className="text-lg text-deep-ink text-opacity-70 max-w-2xl mx-auto">
+              We're early on our journey and growing — here's exactly what you can expect.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {trustPillars.map((pillar, idx) => (
+              <div key={idx} className="card bg-white text-center">
+                <div className="mb-4 p-3 w-fit mx-auto rounded-lg bg-aether-electric-teal bg-opacity-10 border border-aether-electric-teal border-opacity-20">
+                  {pillar.icon}
+                </div>
+                <h3 className="font-display font-bold text-lg mb-2 text-aether-deep-teal">{pillar.title}</h3>
+                <p className="text-deep-ink text-opacity-70 text-sm leading-relaxed">{pillar.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/*
+            TODO (Muneeb): once you have 3-5 completed orders, replace this
+            section's content with real client quotes + first names. Genuine
+            testimonials convert far better than generic trust copy — but
+            only once they're real.
+          */}
         </div>
       </section>
 
@@ -267,11 +319,9 @@ export default function Home() {
       <section className="py-24 bg-sky-white">
         <div className="container-aether">
           <div className="relative bg-gradient-to-br from-aether-deep-teal to-aether-electric-teal rounded-2xl p-12 text-center overflow-hidden">
-            {/* Background Elements */}
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-aether-bright-cyan rounded-full opacity-20 blur-3xl"></div>
             <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-aether-sky-cyan rounded-full opacity-20 blur-3xl"></div>
 
-            {/* Content */}
             <div className="relative z-10">
               <h2 className="font-display font-bold text-4xl text-sky-white mb-4">Ready to Transform Your Career?</h2>
               <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto mb-8">
@@ -301,7 +351,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Blob Animation Styles */}
       <style jsx>{`
         @keyframes blob {
           0%, 100% { transform: translate(0, 0) scale(1); }
@@ -324,4 +373,5 @@ export default function Home() {
       `}</style>
     </>
   );
-}
+      }
+                
