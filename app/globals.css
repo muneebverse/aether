@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-@config "../tailwind.config.ts";
-
 @import "tailwindcss";
+
+@config "../tailwind.config.ts";
 
 :root {
   --aether-deep-teal: #0097A7;
@@ -233,6 +233,33 @@ label {
   0%, 100% { border-radius: 45% 55% 50% 50%; }
   50% { border-radius: 55% 45% 55% 45%; }
 }
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Referenced throughout page.tsx / services/page.tsx but previously never
+   defined anywhere — every "fade in on load" effect was silently doing
+   nothing. fill-mode: both keeps the element at its "from" state during any
+   animation-delay instead of flashing fully visible first. */
+.animate-fade-in-up {
+  animation: slideInUp 0.7s ease-out both;
+}
+
+.animate-fade-in-down {
+  animation: slideInDown 0.7s ease-out both;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
 
 /* Morphism & Glass */
 .glass {
