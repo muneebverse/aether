@@ -33,6 +33,10 @@ const config: Config = {
         alert: '#EF4444',
         neutral: '#6B7280',
       },
+      fontWeight: {
+        '500': '500',
+        '600': '600',
+      },
       fontFamily: {
         display: [
           'Space Grotesk',
