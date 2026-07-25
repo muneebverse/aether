@@ -32,20 +32,20 @@ export default function Contact() {
                 <h2 className="font-display font-bold text-2xl mb-8">Contact Information</h2>
               </div>
 
-              {[
+              {([
                 {
                   icon: <Mail size={24} className="text-aether-bright-cyan" />,
                   label: 'Email',
                   value: SOCIAL_LINKS.email.url.replace('mailto:', ''),
-                  href: SOCIAL_LINKS.email.url,
+                  href: SOCIAL_LINKS.email.url as string,
                 },
                 {
                   icon: <MessageCircle size={24} className="text-aether-bright-cyan" />,
                   label: 'WhatsApp',
                   value: 'Message us directly',
-                  href: SOCIAL_LINKS.whatsapp.url,
+                  href: SOCIAL_LINKS.whatsapp.url as string,
                 },
-              ].map((item, idx) => (
+              ] as { icon: React.ReactNode; label: string; value: string; href: string | null }[]).map((item, idx) => (
                 <div key={idx} className="flex gap-4">
                   <div className="flex-shrink-0">{item.icon}</div>
                   <div>
