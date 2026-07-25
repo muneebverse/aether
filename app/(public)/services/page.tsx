@@ -1,46 +1,38 @@
-'use client';
-
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, Users, Zap, Clock, Star } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { createClient } from '@/lib/supabase-server';
 
-export default function ServicesPage() {
-  const [isLoaded, setIsLoaded] = useState(false);
+export const revalidate = 0;
 
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
+const CATEGORY_ICON: Record<string, string> = {
+  academic: '📄',
+  career: '💼',
+  restaurant: '🌐',
+};
 
-  const services = [
-    {
-      title: 'Portfolio & Website Services',
-      description: 'Custom Next.js portfolios that convert visitors into opportunities.',
-      icon: '🌐',
-      features: ['Mobile-responsive design', 'Project showcase', 'Blog setup', 'SEO optimization'],
-      ctaText: 'View Pricing →',
-    },
-    {
-      title: 'CV & Career Document Services',
-      description: 'ATS-optimized CVs with modern design that get past screening systems.',
-      icon: '📄',
-      features: ['Keyword optimization', 'Multiple versions', 'LinkedIn strategy', 'Cover letters'],
-      ctaText: 'View Pricing →',
-    },
-    {
-      title: 'Presentation & Slide Deck Services',
-      description: 'Professional presentations with strategic narrative flow and compelling design.',
-      icon: '🎯',
-      features: ['Custom design', 'Data visualization', 'Speaker notes', 'Delivery coaching'],
-      ctaText: 'View Pricing →',
-    },
-    {
-      title: 'LinkedIn Optimization Service',
-      description: 'Optimize your professional identity for discoverability and credibility.',
-      icon: '💼',
-      features: ['Headline rewrite', 'Professional summary', 'Skills optimization', 'Photo + banner'],
-      ctaText: 'View Pricing →',
-    },
-  ];
+const CATEGORY_LABEL: Record<string, string> = {
+  academic: 'Academic',
+  career: 'Career',
+  restaurant: 'Restaurant Websites',
+};
+
+export default async function ServicesPage() {
+  const supabase = await createClient();
+
+  const { data: dbServices } = await supabase
+    .from('services')
+    .select('*')
+    .eq('status', 'active')
+    .order('order_index', { ascending: true });
+
+  const services = (dbServices || []).map((s) => ({
+    title: s.title,
+    description: s.description || '',
+    icon: CATEGORY_ICON[s.category || ''] || '✨',
+    categoryLabel: CATEGORY_LABEL[s.category || ''] || s.category || '',
+    priceRange: s.price_range,
+    slug: s.slug,
+  }));
 
   const processSteps = [
     {
@@ -106,7 +98,7 @@ export default function ServicesPage() {
         </div>
 
         <div className="container-aether">
-          <div className={`text-center max-w-3xl mx-auto ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className={`text-center max-w-3xl mx-auto animate-fade-in-up`}>
             <h1 className="font-display font-bold text-4xl sm:text-5xl mb-6 text-aether-deep-teal">
               We Build Your Complete Professional Identity
             </h1>
@@ -138,30 +130,39 @@ export default function ServicesPage() {
             </p>
           </div>
 
+          {services.length === 0 && (
+            <p className="text-center text-deep-ink text-opacity-70">
+              No active services yet — add some from the admin dashboard.
+            </p>
+          )}
+
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, idx) => (
               <div
-                key={idx}
-                className={`card hover:border-aether-bright-cyan hover:shadow-lg transition-all ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
+                key={service.slug || idx}
+                className="card hover:border-aether-bright-cyan hover:shadow-lg transition-all animate-fade-in-up"
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
+                {service.categoryLabel && (
+                  <span className="inline-block bg-aether-electric-teal bg-opacity-10 text-aether-electric-teal px-3 py-1 rounded text-xs font-bold mb-3">
+                    {service.categoryLabel}
+                  </span>
+                )}
                 <h3 className="font-display font-bold text-xl mb-2 text-aether-deep-teal">
                   {service.title}
                 </h3>
                 <p className="text-deep-ink text-opacity-70 mb-6">
                   {service.description}
                 </p>
-                <ul className="space-y-2 mb-8">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="flex gap-2 items-start text-sm">
-                      <CheckCircle2 size={18} className="text-aether-bright-cyan flex-shrink-0 mt-0.5" />
-                      <span className="text-deep-ink">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/pricing" className="text-aether-electric-teal font-600 hover:text-aether-bright-cyan transition-colors inline-flex items-center gap-2">
-                  {service.ctaText}
+                {service.priceRange && (
+                  <p className="flex gap-2 items-center text-sm mb-6">
+                    <CheckCircle2 size={18} className="text-aether-bright-cyan flex-shrink-0" />
+                    <span className="text-deep-ink font-600">{service.priceRange}</span>
+                  </p>
+                )}
+                <Link href={`/pricing#service-${service.slug}`} className="text-aether-electric-teal font-600 hover:text-aether-bright-cyan transition-colors inline-flex items-center gap-2">
+                  View Pricing <ArrowRight size={16} />
                 </Link>
               </div>
             ))}
@@ -183,7 +184,7 @@ export default function ServicesPage() {
 
           <div className="grid md:grid-cols-5 gap-4 sm:gap-6">
             {processSteps.map((step, idx) => (
-              <div key={idx} className={`relative ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
+              <div key={idx} className={`relative animate-fade-in-up`}
                 style={{ animationDelay: `${idx * 100}ms` }}>
                 {/* Connector line (hidden on mobile/tablet) */}
                 {idx < processSteps.length - 1 && (
@@ -223,7 +224,7 @@ export default function ServicesPage() {
             {testimonials.map((testimonial, idx) => (
               <div
                 key={idx}
-                className={`card bg-gradient-to-br from-sky-white to-aether-electric-teal to-opacity-5 hover:shadow-lg transition-all ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
+                className={`card bg-gradient-to-br from-sky-white to-aether-electric-teal to-opacity-5 hover:shadow-lg transition-all animate-fade-in-up`}
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
                 <div className="flex gap-1 mb-4">
@@ -248,7 +249,7 @@ export default function ServicesPage() {
       <section className="py-20 sm:py-28 bg-gradient-to-r from-aether-deep-teal via-aether-electric-teal to-aether-bright-cyan">
         <div className="container-aether">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className={isLoaded ? 'animate-fade-in-up' : 'opacity-0'}>
+            <div className="animate-fade-in-up">
               <h2 className="font-display font-bold text-3xl sm:text-4xl text-sky-white mb-6">
                 Why Choose AETHER?
               </h2>
@@ -269,7 +270,7 @@ export default function ServicesPage() {
               </ul>
             </div>
 
-            <div className={`flex flex-col gap-4 ${isLoaded ? 'animate-fade-in-down' : 'opacity-0'}`}>
+            <div className={`flex flex-col gap-4 animate-fade-in-down`}>
               <div className="bg-sky-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 border border-sky-white border-opacity-20">
                 <Users size={32} className="text-aether-bright-cyan mb-3" />
                 <h3 className="font-display font-bold text-lg text-sky-white mb-2">For Everyone</h3>
@@ -319,3 +320,4 @@ export default function ServicesPage() {
     </>
   );
 }
+
