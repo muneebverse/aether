@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Mail, MessageCircle, Clock } from 'lucide-react';
 import RequestForm from '@/components/RequestForm';
+import { SOCIAL_LINKS } from '@/lib/social-links';
 
 export default function Contact() {
   const [orderId, setOrderId] = useState<string | null>(null);
@@ -35,14 +36,14 @@ export default function Contact() {
                 {
                   icon: <Mail size={24} className="text-aether-bright-cyan" />,
                   label: 'Email',
-                  value: 'hello@aethers.studio',
-                  href: 'mailto:hello@aethers.studio',
+                  value: SOCIAL_LINKS.email.url.replace('mailto:', ''),
+                  href: SOCIAL_LINKS.email.url,
                 },
                 {
                   icon: <MessageCircle size={24} className="text-aether-bright-cyan" />,
                   label: 'WhatsApp',
-                  value: 'Available after you submit a request',
-                  href: null,
+                  value: 'Message us directly',
+                  href: SOCIAL_LINKS.whatsapp.url,
                 },
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-4">
