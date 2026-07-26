@@ -36,7 +36,7 @@ export default function About() {
           <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4">
             About AETHER
           </h1>
-          <p className="text-lg text-white text-opacity-90 max-w-2xl mx-auto">
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
             We believe in the power of clarity. When you know who you are and what you want,
             the right opportunities follow.
           </p>
@@ -49,18 +49,18 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-display font-bold text-4xl mb-6">Our Story</h2>
-              <p className="text-aether-deep-ink text-opacity-70 mb-4 leading-relaxed">
+              <p className="text-aether-deep-ink/70 mb-4 leading-relaxed">
                 AETHER was born from a simple observation: talented people were getting rejected
                 before hiring managers ever saw their true value. Their resumes didn't pass ATS
                 systems. Their LinkedIn profiles were invisible. Their professional narrative was
                 unclear.
               </p>
-              <p className="text-aether-deep-ink text-opacity-70 mb-4 leading-relaxed">
+              <p className="text-aether-deep-ink/70 mb-4 leading-relaxed">
                 We realized the problem wasn't the people—it was their positioning. So we built
                 AETHER: a service that combines ATS expertise, strategic thinking, and human
                 insight to transform professional applications.
               </p>
-              <p className="text-aether-deep-ink text-opacity-70 leading-relaxed">
+              <p className="text-aether-deep-ink/70 leading-relaxed">
                 We're just getting started, and every order gets the same thing: direct,
                 hands-on attention rather than a template pulled off a shelf. This is our
                 mission: to elevate your professional presence and clarify your path forward.
@@ -86,11 +86,11 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="bg-aether-electric-teal bg-opacity-5 py-24">
+      <section className="bg-aether-electric-teal/5 py-24">
         <div className="container-aether">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-4xl mb-4">Our Values</h2>
-            <p className="text-lg text-aether-deep-ink text-opacity-70">
+            <p className="text-lg text-aether-deep-ink/70">
               These principles guide every decision we make and every client we serve.
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function About() {
               <div key={idx} className="card bg-white">
                 <div className="mb-4">{value.icon}</div>
                 <h3 className="font-display font-bold text-xl mb-3">{value.title}</h3>
-                <p className="text-aether-deep-ink text-opacity-70">{value.description}</p>
+                <p className="text-aether-deep-ink/70">{value.description}</p>
               </div>
             ))}
           </div>
@@ -112,7 +112,7 @@ export default function About() {
         <div className="container-aether">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-4xl mb-4">Who's Behind AETHER</h2>
-            <p className="text-lg text-aether-deep-ink text-opacity-70 max-w-2xl mx-auto">
+            <p className="text-lg text-aether-deep-ink/70 max-w-2xl mx-auto">
               AETHER is founded and run by a mechanical engineering student who understands
               exactly what it's like to be on the other side of a job application — because
               I'm applying for internships and roles myself.
@@ -125,7 +125,7 @@ export default function About() {
             </div>
             <h3 className="font-display font-bold text-xl mb-1">Founder & Career Strategist</h3>
             <p className="text-aether-bright-cyan text-sm font-600 mb-4">Every order, personally reviewed</p>
-            <p className="text-aether-deep-ink text-opacity-70 text-sm">
+            <p className="text-aether-deep-ink/70 text-sm">
               No account managers, no outsourcing to a team you'll never meet. When you work
               with AETHER, you work directly with the person building your resume, portfolio,
               or presentation.
@@ -138,7 +138,7 @@ export default function About() {
       <section className="bg-aether-deep-ink text-aether-sky-white py-24">
         <div className="container-aether text-center">
           <h2 className="font-display font-bold text-4xl mb-6">Our Mission</h2>
-          <p className="text-lg text-aether-sky-white text-opacity-90 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-lg text-aether-sky-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
             To transform how professionals present themselves to the world. We empower people to
             gain clarity about their careers, position themselves compellingly, and achieve the
             roles and opportunities they truly deserve. Every resume we optimize, every profile
@@ -154,7 +154,7 @@ export default function About() {
           <h2 className="font-display font-bold text-4xl mb-4">
             Ready to Get Started?
           </h2>
-          <p className="text-lg text-aether-deep-ink text-opacity-70 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-aether-deep-ink/70 max-w-2xl mx-auto mb-8">
             Let's clarify your path and elevate your career together.
           </p>
           <Link href="/request" className="btn btn-primary">
