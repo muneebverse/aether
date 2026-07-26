@@ -31,11 +31,11 @@ export function FormWrapper({
           </Link>
 
           <h1 className="text-4xl font-bold text-aether-deep-teal mb-2">{title}</h1>
-          {description && <p className="text-deep-ink text-opacity-70">{description}</p>}
+          {description && <p className="text-deep-ink/70">{description}</p>}
         </div>
 
         {/* Form Card */}
-        <div className="bg-white rounded-2xl border border-aether-electric-teal border-opacity-10 p-8 shadow-sm">
+        <div className="bg-white rounded-2xl border border-aether-electric-teal/10 p-8 shadow-sm">
           {children}
         </div>
       </div>
@@ -103,7 +103,7 @@ export function FormInput({
       className={`w-full px-4 py-2.5 rounded-lg border-2 bg-sky-white text-deep-ink placeholder-neutral transition-all ${
         error
           ? 'border-aether-alert focus:border-aether-alert'
-          : 'border-aether-electric-teal border-opacity-20 focus:border-aether-bright-cyan focus:border-opacity-100'
+          : 'border-aether-electric-teal/20 focus:border-aether-bright-cyan/100'
       }`}
     />
   );
@@ -142,7 +142,7 @@ export function FormTextarea({
       className={`w-full px-4 py-2.5 rounded-lg border-2 bg-sky-white text-deep-ink placeholder-neutral transition-all resize-none ${
         error
           ? 'border-aether-alert focus:border-aether-alert'
-          : 'border-aether-electric-teal border-opacity-20 focus:border-aether-bright-cyan focus:border-opacity-100'
+          : 'border-aether-electric-teal/20 focus:border-aether-bright-cyan/100'
       }`}
     />
   );
@@ -186,7 +186,7 @@ export function FormSelect({
       className={`w-full px-4 py-2.5 rounded-lg border-2 bg-sky-white text-deep-ink transition-all ${
         error
           ? 'border-aether-alert focus:border-aether-alert'
-          : 'border-aether-electric-teal border-opacity-20 focus:border-aether-bright-cyan focus:border-opacity-100'
+          : 'border-aether-electric-teal/20 focus:border-aether-bright-cyan/100'
       }`}
     >
       {children}
@@ -222,7 +222,7 @@ export function FormButtons({
   isDestructive?: boolean;
 }) {
   return (
-    <div className="flex gap-4 pt-8 mt-8 border-t border-aether-electric-teal border-opacity-10">
+    <div className="flex gap-4 pt-8 mt-8 border-t border-aether-electric-teal/10">
       {cancelHref ? (
         <Link
           href={cancelHref}
@@ -271,7 +271,7 @@ export function FormGroup({
   children: React.ReactNode;
 }) {
   return (
-    <div className={title ? 'space-y-6 pb-8 border-b border-aether-electric-teal border-opacity-10' : 'space-y-6'}>
+    <div className={title ? 'space-y-6 pb-8 border-b border-aether-electric-teal/10' : 'space-y-6'}>
       {title && <h3 className="text-lg font-bold text-aether-deep-teal">{title}</h3>}
       <div className="space-y-4">{children}</div>
     </div>
