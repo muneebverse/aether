@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: '/services', label: 'Services' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/portfolio', label: 'Portfolio' },
+  { href: '/restaurant-websites', label: 'Restaurants' },
   { href: '/about', label: 'About' },
   { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
@@ -31,7 +32,7 @@ export default function Navbar() {
     <nav
       className={`sticky top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? 'bg-sky-white bg-opacity-80 backdrop-blur-md border-aether-electric-teal border-opacity-10 shadow-sm'
+          ? 'bg-sky-white/80 backdrop-blur-md border-aether-electric-teal/10 shadow-sm'
           : 'bg-sky-white border-transparent'
       }`}
     >
@@ -63,7 +64,7 @@ export default function Navbar() {
 
           <Link
             href="/track"
-            className="flex items-center gap-1.5 text-deep-ink text-opacity-60 hover:text-aether-electric-teal font-500 text-sm transition-colors duration-200"
+            className="flex items-center gap-1.5 text-deep-ink/60 hover:text-aether-electric-teal font-500 text-sm transition-colors duration-200"
           >
             <Search size={14} />
             Track Order
@@ -86,7 +87,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-sky-white border-t border-aether-electric-teal border-opacity-10 px-6 py-4 space-y-4 animate-fade-in-down">
+        <div className="md:hidden bg-sky-white border-t border-aether-electric-teal/10 px-6 py-4 space-y-4 animate-fade-in-down">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -99,7 +100,7 @@ export default function Navbar() {
           ))}
           <Link
             href="/track"
-            className="flex items-center gap-1.5 text-deep-ink text-opacity-60 hover:text-aether-electric-teal font-500 transition-colors"
+            className="flex items-center gap-1.5 text-deep-ink/60 hover:text-aether-electric-teal font-500 transition-colors"
             onClick={() => setIsOpen(false)}
           >
             <Search size={14} />
