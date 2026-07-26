@@ -5,14 +5,18 @@ import { createClient } from '@/lib/supabase-server';
 export const revalidate = 0;
 
 const CATEGORY_ICON: Record<string, string> = {
-  academic: '📄',
-  career: '💼',
-  restaurant: '🌐',
+  portfolio: '🌐',
+  cv: '📄',
+  presentation: '🎯',
+  linkedin: '💼',
+  restaurant: '🍽️',
 };
 
 const CATEGORY_LABEL: Record<string, string> = {
-  academic: 'Academic',
-  career: 'Career',
+  portfolio: 'Portfolio & Website',
+  cv: 'CV & Career Docs',
+  presentation: 'Presentation & Slides',
+  linkedin: 'LinkedIn Optimization',
   restaurant: 'Restaurant Websites',
 };
 
@@ -102,7 +106,7 @@ export default async function ServicesPage() {
             <h1 className="font-display font-bold text-4xl sm:text-5xl mb-6 text-aether-deep-teal">
               We Build Your Complete Professional Identity
             </h1>
-            <p className="text-lg text-deep-ink text-opacity-70 mb-8">
+            <p className="text-lg text-deep-ink/70 mb-8">
               Not templates. Not generic. Custom work built for you. Portfolios, CVs, presentations, LinkedIn—everything you need to stand out and get hired.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -125,13 +129,13 @@ export default async function ServicesPage() {
             <h2 className="font-display font-bold text-3xl sm:text-4xl mb-4 text-aether-deep-teal">
               What We Do
             </h2>
-            <p className="text-lg text-deep-ink text-opacity-70 max-w-2xl mx-auto">
+            <p className="text-lg text-deep-ink/70 max-w-2xl mx-auto">
               Four core services. One goal: clarify your professional narrative and position you for roles that match your aspirations.
             </p>
           </div>
 
           {services.length === 0 && (
-            <p className="text-center text-deep-ink text-opacity-70">
+            <p className="text-center text-deep-ink/70">
               No active services yet — add some from the admin dashboard.
             </p>
           )}
@@ -145,14 +149,14 @@ export default async function ServicesPage() {
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
                 {service.categoryLabel && (
-                  <span className="inline-block bg-aether-electric-teal bg-opacity-10 text-aether-electric-teal px-3 py-1 rounded text-xs font-bold mb-3">
+                  <span className="inline-block bg-aether-electric-teal/10 text-aether-electric-teal px-3 py-1 rounded text-xs font-bold mb-3">
                     {service.categoryLabel}
                   </span>
                 )}
                 <h3 className="font-display font-bold text-xl mb-2 text-aether-deep-teal">
                   {service.title}
                 </h3>
-                <p className="text-deep-ink text-opacity-70 mb-6">
+                <p className="text-deep-ink/70 mb-6">
                   {service.description}
                 </p>
                 {service.priceRange && (
@@ -171,13 +175,13 @@ export default async function ServicesPage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 sm:py-28 bg-aether-electric-teal bg-opacity-5">
+      <section className="py-20 sm:py-28 bg-aether-electric-teal/5">
         <div className="container-aether">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-3xl sm:text-4xl mb-4 text-aether-deep-teal">
               How AETHER Works
             </h2>
-            <p className="text-lg text-deep-ink text-opacity-70 max-w-2xl mx-auto">
+            <p className="text-lg text-deep-ink/70 max-w-2xl mx-auto">
               Five simple steps from idea to delivery. Direct, transparent, no surprises.
             </p>
           </div>
@@ -191,14 +195,14 @@ export default async function ServicesPage() {
                   <div className="hidden md:block absolute left-1/2 top-20 w-full h-0.5 bg-gradient-to-r from-aether-electric-teal to-aether-bright-cyan"></div>
                 )}
 
-                <div className="relative bg-white rounded-lg border border-aether-electric-teal border-opacity-20 p-6 text-center h-full">
+                <div className="relative bg-white rounded-lg border border-aether-electric-teal/20 p-6 text-center h-full">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-aether-deep-teal to-aether-electric-teal flex items-center justify-center text-white font-bold text-lg mx-auto mb-4 relative z-10">
                     {step.number}
                   </div>
                   <h3 className="font-display font-bold text-lg mb-2 text-aether-deep-teal">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-deep-ink text-opacity-70">
+                  <p className="text-sm text-deep-ink/70">
                     {step.description}
                   </p>
                 </div>
@@ -215,7 +219,7 @@ export default async function ServicesPage() {
             <h2 className="font-display font-bold text-3xl sm:text-4xl mb-4 text-aether-deep-teal">
               What Clients Say
             </h2>
-            <p className="text-lg text-deep-ink text-opacity-70 max-w-2xl mx-auto">
+            <p className="text-lg text-deep-ink/70 max-w-2xl mx-auto">
               Real results from engineers and professionals who transformed their careers with AETHER.
             </p>
           </div>
@@ -237,7 +241,7 @@ export default async function ServicesPage() {
                 </p>
                 <div>
                   <p className="font-display font-bold text-aether-deep-teal">{testimonial.name}</p>
-                  <p className="text-sm text-deep-ink text-opacity-60">{testimonial.role}</p>
+                  <p className="text-sm text-deep-ink/60">{testimonial.role}</p>
                 </div>
               </div>
             ))}
@@ -271,20 +275,20 @@ export default async function ServicesPage() {
             </div>
 
             <div className={`flex flex-col gap-4 animate-fade-in-down`}>
-              <div className="bg-sky-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 border border-sky-white border-opacity-20">
+              <div className="bg-sky-white/10 backdrop-blur-md rounded-lg p-6 border border-sky-white/20">
                 <Users size={32} className="text-aether-bright-cyan mb-3" />
                 <h3 className="font-display font-bold text-lg text-sky-white mb-2">For Everyone</h3>
-                <p className="text-sky-white text-opacity-90">Recent grads, career changers, experienced professionals — we tailor work to your story.</p>
+                <p className="text-sky-white/90">Recent grads, career changers, experienced professionals — we tailor work to your story.</p>
               </div>
-              <div className="bg-sky-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 border border-sky-white border-opacity-20">
+              <div className="bg-sky-white/10 backdrop-blur-md rounded-lg p-6 border border-sky-white/20">
                 <Zap size={32} className="text-aether-bright-cyan mb-3" />
                 <h3 className="font-display font-bold text-lg text-sky-white mb-2">Fast & Reliable</h3>
-                <p className="text-sky-white text-opacity-90">Fixed timelines, direct communication, deliverables you can download and own forever.</p>
+                <p className="text-sky-white/90">Fixed timelines, direct communication, deliverables you can download and own forever.</p>
               </div>
-              <div className="bg-sky-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 border border-sky-white border-opacity-20">
+              <div className="bg-sky-white/10 backdrop-blur-md rounded-lg p-6 border border-sky-white/20">
                 <Clock size={32} className="text-aether-bright-cyan mb-3" />
                 <h3 className="font-display font-bold text-lg text-sky-white mb-2">Post-Delivery Support</h3>
-                <p className="text-sky-white text-opacity-90">7-day support window for minor tweaks after delivery. You're never left stranded.</p>
+                <p className="text-sky-white/90">7-day support window for minor tweaks after delivery. You're never left stranded.</p>
               </div>
             </div>
           </div>
@@ -302,7 +306,7 @@ export default async function ServicesPage() {
               <h2 className="font-display font-bold text-3xl sm:text-4xl text-sky-white mb-4">
                 Ready to Elevate Your Professional Presence?
               </h2>
-              <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto mb-8">
+              <p className="text-lg text-sky-white/90 max-w-2xl mx-auto mb-8">
                 Let's transform your application from invisible to unmissable. Check out our pricing and pick the service that fits your needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -320,4 +324,3 @@ export default async function ServicesPage() {
     </>
   );
 }
-
