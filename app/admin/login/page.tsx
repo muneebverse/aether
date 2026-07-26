@@ -48,12 +48,12 @@ export default function AdminLoginPage() {
             className="w-12 h-12 mb-3"
           />
           <span className="font-display font-bold text-xl text-sky-white">AETHER</span>
-          <span className="text-sky-white text-opacity-70 text-sm mt-1">Admin</span>
+          <span className="text-sky-white/70 text-sm mt-1">Admin</span>
         </div>
 
-        <div className="bg-sky-white rounded-2xl p-8 shadow-2xl border border-aether-electric-teal border-opacity-10">
+        <div className="bg-sky-white rounded-2xl p-8 shadow-2xl border border-aether-electric-teal/10">
           <div className="flex items-center gap-2 mb-6">
-            <div className="p-2 rounded-lg bg-aether-electric-teal bg-opacity-10">
+            <div className="p-2 rounded-lg bg-aether-electric-teal/10">
               <Lock size={18} className="text-aether-electric-teal" />
             </div>
             <h1 className="font-display font-bold text-lg text-aether-deep-teal">Sign in</h1>
@@ -74,7 +74,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoFocus
-                className="w-full border border-aether-electric-teal border-opacity-20 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-aether-electric-teal focus:ring-1 focus:ring-aether-electric-teal transition-all"
+                className="w-full border border-aether-electric-teal/20 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-aether-electric-teal focus:ring-1 focus:ring-aether-electric-teal transition-all"
               />
             </div>
 
@@ -85,7 +85,7 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full border border-aether-electric-teal border-opacity-20 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-aether-electric-teal focus:ring-1 focus:ring-aether-electric-teal transition-all"
+                className="w-full border border-aether-electric-teal/20 rounded-lg px-3 py-2.5 text-sm outline-none focus:border-aether-electric-teal focus:ring-1 focus:ring-aether-electric-teal transition-all"
               />
             </div>
 
