@@ -8,7 +8,7 @@ import { createClient } from '@/lib/supabase-server';
 export const revalidate = 0;
 
 const STATUS_BADGE: Record<string, { label: string; className: string }> = {
-  showcase: { label: 'Showcase', className: 'bg-aether-electric-teal bg-opacity-10 text-aether-electric-teal' },
+  showcase: { label: 'Showcase', className: 'bg-aether-electric-teal/10 text-aether-electric-teal' },
   active: { label: 'Live & Maintained', className: 'bg-success/10 text-success' },
   sold: { label: 'Sold', className: 'bg-neutral/10 text-neutral' },
 };
@@ -40,7 +40,7 @@ export default async function RestaurantWebsitesPage() {
           <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-sky-white">
             Restaurant Websites
           </h1>
-          <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto">
+          <p className="text-lg text-sky-white/90 max-w-2xl mx-auto">
             Custom-built websites for restaurants and food businesses — mobile-first, fast, and built to convert visitors into orders.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default async function RestaurantWebsitesPage() {
       <section className="py-24 section-spacing">
         <div className="container-aether">
           {samples.length === 0 && (
-            <p className="text-center text-deep-ink text-opacity-70">
+            <p className="text-center text-deep-ink/70">
               No restaurant projects published yet. Check back soon.
             </p>
           )}
@@ -79,7 +79,7 @@ export default async function RestaurantWebsitesPage() {
                   </h3>
 
                   {sample.caption && (
-                    <p className="text-deep-ink text-opacity-70 text-sm mb-4 flex-grow">
+                    <p className="text-deep-ink/70 text-sm mb-4 flex-grow">
                       {sample.caption}
                     </p>
                   )}
@@ -101,7 +101,7 @@ export default async function RestaurantWebsitesPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-aether-electric-teal bg-opacity-5">
+      <section className="py-16 bg-aether-electric-teal/5">
         <div className="container-aether text-center">
           <h2 className="font-display font-bold text-2xl sm:text-3xl mb-4 text-aether-deep-teal">
             Need a website for your restaurant?
