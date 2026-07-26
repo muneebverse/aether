@@ -51,7 +51,7 @@ export default async function ResourcesPage() {
           <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-sky-white">
             Resources
           </h1>
-          <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto">
+          <p className="text-lg text-sky-white/90 max-w-2xl mx-auto">
             Free guides, templates, and course links to help you get ahead.
           </p>
         </div>
@@ -60,7 +60,7 @@ export default async function ResourcesPage() {
       <section className="py-24 section-spacing">
         <div className="container-aether max-w-4xl">
           {resources.length === 0 && (
-            <p className="text-center text-deep-ink text-opacity-70">
+            <p className="text-center text-deep-ink/70">
               No resources published yet. Check back soon.
             </p>
           )}
@@ -79,7 +79,7 @@ export default async function ResourcesPage() {
                     rel="noopener noreferrer"
                     className="card bg-white hover:shadow-card hover:border-aether-bright-cyan transition-all flex items-start gap-3"
                   >
-                    <div className="mt-1 p-2 rounded-lg bg-aether-bright-cyan bg-opacity-10 flex-shrink-0">
+                    <div className="mt-1 p-2 rounded-lg bg-aether-bright-cyan/10 flex-shrink-0">
                       {TYPE_ICON[resource.resource_type] || <FileText size={20} className="text-aether-bright-cyan" />}
                     </div>
                     <div className="min-w-0">
@@ -88,7 +88,7 @@ export default async function ResourcesPage() {
                       </span>
                       <h3 className="font-display font-bold text-base text-deep-ink mt-1 flex items-center gap-1.5">
                         {resource.title}
-                        <ExternalLink size={14} className="text-deep-ink text-opacity-40 flex-shrink-0" />
+                        <ExternalLink size={14} className="text-deep-ink/40 flex-shrink-0" />
                       </h3>
                     </div>
                   </a>
