@@ -24,7 +24,7 @@ export default function PricingTierCard({
       </div>
       <ul className="space-y-3 mb-8 flex-grow">
         {features.map((f, i) => (
-          <li key={i} className="flex gap-3 items-start text-sm text-deep-ink text-opacity-70">
+          <li key={i} className="flex gap-3 items-start text-sm text-deep-ink/70">
             <Check size={18} className="text-aether-success flex-shrink-0 mt-0.5" />
             {f}
           </li>
