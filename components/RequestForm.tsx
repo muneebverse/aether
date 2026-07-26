@@ -87,7 +87,7 @@ export default function RequestForm({
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g., James"
-            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink placeholder-neutral focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal/20 bg-sky-white text-deep-ink placeholder-neutral focus:border-aether-bright-cyan/100 transition-all"
           />
         </div>
         <div>
@@ -98,7 +98,7 @@ export default function RequestForm({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink placeholder-neutral focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal/20 bg-sky-white text-deep-ink placeholder-neutral focus:border-aether-bright-cyan/100 transition-all"
           />
         </div>
       </div>
@@ -112,7 +112,7 @@ export default function RequestForm({
           value={whatsapp}
           onChange={(e) => setWhatsapp(e.target.value)}
           placeholder="+92 3XX XXXXXXX"
-          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink placeholder-neutral focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal/20 bg-sky-white text-deep-ink placeholder-neutral focus:border-aether-bright-cyan/100 transition-all"
         />
       </div>
 
@@ -123,7 +123,7 @@ export default function RequestForm({
           required
           value={service}
           onChange={(e) => setService(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal/20 bg-sky-white text-deep-ink focus:border-aether-bright-cyan/100 transition-all"
         >
           <option value="">Select a service</option>
           {SERVICE_OPTIONS.map((s) => (
@@ -142,7 +142,7 @@ export default function RequestForm({
           value={instructions}
           onChange={(e) => setInstructions(e.target.value)}
           placeholder="Tell us what you need. The more detail, the better."
-          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink placeholder-neutral focus:border-opacity-100 focus:border-aether-bright-cyan transition-all resize-none"
+          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal/20 bg-sky-white text-deep-ink placeholder-neutral focus:border-aether-bright-cyan/100 transition-all resize-none"
         />
       </div>
 
@@ -154,7 +154,7 @@ export default function RequestForm({
             type="file"
             multiple
             onChange={(e) => setFiles(Array.from(e.target.files || []))}
-            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-sm text-deep-ink file:mr-3 file:px-3 file:py-1.5 file:rounded-md file:bg-aether-electric-teal file:text-white file:font-semibold file:cursor-pointer hover:file:bg-aether-deep-teal transition-all"
+            className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal/20 bg-sky-white text-sm text-deep-ink file:mr-3 file:px-3 file:py-1.5 file:rounded-md file:bg-aether-electric-teal file:text-white file:font-semibold file:cursor-pointer hover:file:bg-aether-deep-teal transition-all"
           />
         </div>
         {files.length > 0 && (
@@ -173,7 +173,7 @@ export default function RequestForm({
           value={desiredDate}
           onChange={(e) => handleDesiredDateChange(e.target.value)}
           min={new Date().toISOString().split('T')[0]}
-          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal border-opacity-20 bg-sky-white text-deep-ink focus:border-opacity-100 focus:border-aether-bright-cyan transition-all"
+          className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal/20 bg-sky-white text-deep-ink focus:border-aether-bright-cyan/100 transition-all"
         />
         {isUrgent && (
           <p className="mt-2 text-xs text-aether-alert flex items-center gap-1 font-medium">
