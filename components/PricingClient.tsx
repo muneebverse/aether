@@ -38,7 +38,7 @@ export default function PricingClient({
       <section className="bg-aether-deep-teal text-sky-white py-12 sm:py-16 lg:py-20">
         <div className="container-aether text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4">Transparent Pricing</h1>
-          <p className="text-base sm:text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto mb-6">
+          <p className="text-base sm:text-lg text-sky-white/90 max-w-2xl mx-auto mb-6">
             No hidden fees. Choose your service, pick a tier, get started.
           </p>
           <CurrencyToggle />
@@ -48,7 +48,7 @@ export default function PricingClient({
       <section className="py-12 sm:py-24 section-spacing">
         <div className="container-aether">
           {serviceGroups.length === 0 && bundles.length === 0 && (
-            <p className="text-center text-deep-ink text-opacity-70 mb-16">
+            <p className="text-center text-deep-ink/70 mb-16">
               No pricing published yet — add tiers from the admin dashboard.
             </p>
           )}
@@ -85,7 +85,7 @@ export default function PricingClient({
                       {formatPrice(b.price_pkr, currency)}
                     </div>
                     {b.bundle_includes && (
-                      <p className="text-sm text-deep-ink text-opacity-70 mb-6 flex-grow">{b.bundle_includes}</p>
+                      <p className="text-sm text-deep-ink/70 mb-6 flex-grow">{b.bundle_includes}</p>
                     )}
                     <button
                       onClick={() => openModal('Other', `Interested in the ${b.name}.`)}
@@ -100,8 +100,8 @@ export default function PricingClient({
           )}
 
           {/* International clients banner */}
-          <div className="bg-aether-electric-teal bg-opacity-5 border border-aether-electric-teal border-opacity-20 rounded-expansive p-6 text-center">
-            <p className="text-sm text-deep-ink text-opacity-70">
+          <div className="bg-aether-electric-teal/5 border border-aether-electric-teal/20 rounded-expansive p-6 text-center">
+            <p className="text-sm text-deep-ink/70">
               🌍 <strong className="text-aether-deep-teal">International clients:</strong> Payment methods (PayPal, Fiverr, Upwork) coming soon. Local clients can pay via Bank Transfer, JazzCash, or Easypaisa.
             </p>
           </div>
