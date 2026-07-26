@@ -15,7 +15,7 @@ export function ListPageHeader({
   newLabel?: string;
 }) {
   return (
-    <header className="bg-sky-white border-b border-aether-electric-teal border-opacity-10 px-6 py-4 flex items-center justify-between">
+    <header className="bg-sky-white border-b border-aether-electric-teal/10 px-6 py-4 flex items-center justify-between">
       <div className="flex items-center gap-4">
         <Link
           href="/admin"
@@ -24,7 +24,7 @@ export function ListPageHeader({
           <ChevronLeft size={16} />
           Dashboard
         </Link>
-        <span className="text-aether-electric-teal text-opacity-30">/</span>
+        <span className="text-aether-electric-teal/30">/</span>
         <h1 className="font-display font-bold text-lg text-aether-deep-teal">{title}</h1>
       </div>
 
@@ -56,7 +56,7 @@ export function StatusBadge({ status }: { status: string | null | undefined }) {
     ? 'bg-green-100 text-green-800'
     : isDraftLike
     ? 'bg-gray-100 text-gray-800'
-    : 'bg-aether-electric-teal bg-opacity-10 text-aether-deep-teal';
+    : 'bg-aether-electric-teal/10 text-aether-deep-teal';
 
   return (
     <span className={`text-xs font-semibold px-2 py-1 rounded ${classes}`}>
