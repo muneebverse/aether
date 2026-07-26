@@ -41,7 +41,7 @@ export default async function BlogPostPage({
         <div className="container-aether max-w-3xl">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sky-white text-opacity-80 hover:text-opacity-100 text-sm mb-6 transition-colors"
+            className="inline-flex items-center gap-2 text-sky-white/80 hover:text-sky-white text-sm mb-6 transition-colors"
           >
             <ArrowLeft size={16} /> Back to Blog
           </Link>
@@ -49,7 +49,7 @@ export default async function BlogPostPage({
             {post.title}
           </h1>
           {publishedDate && (
-            <div className="flex items-center gap-2 text-sm text-sky-white text-opacity-80">
+            <div className="flex items-center gap-2 text-sm text-sky-white/80">
               <CalendarDays size={16} />
               <span>{publishedDate}</span>
             </div>
@@ -73,7 +73,7 @@ export default async function BlogPostPage({
       <section className="py-16 section-spacing">
         <div className="container-aether max-w-3xl">
           {post.excerpt && (
-            <p className="text-lg text-deep-ink text-opacity-70 mb-8 leading-relaxed italic">
+            <p className="text-lg text-deep-ink/70 mb-8 leading-relaxed italic">
               {post.excerpt}
             </p>
           )}
@@ -82,7 +82,7 @@ export default async function BlogPostPage({
             dangerouslySetInnerHTML={{ __html: post.content || '' }}
           />
 
-          <div className="mt-12 pt-8 border-t border-aether-electric-teal border-opacity-10">
+          <div className="mt-12 pt-8 border-t border-aether-electric-teal/10">
             <Link
               href="/blog"
               className="inline-flex items-center gap-2 text-aether-electric-teal font-600 hover:text-aether-bright-cyan transition-colors"
