@@ -16,7 +16,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-aether-deep-teal to-aether-deep-teal bg-opacity-95 text-sky-white">
+    <footer className="bg-gradient-to-b from-aether-deep-teal to-aether-electric-teal text-sky-white">
       <div className="container-aether py-12 sm:py-16">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 mb-12">
           {/* Brand */}
@@ -32,7 +32,7 @@ export default function Footer() {
               />
               <span className="font-display font-bold text-lg">AETHER</span>
             </div>
-            <p className="text-sky-white text-opacity-70 text-sm leading-relaxed max-w-xs">
+            <p className="text-sky-white/70 text-sm leading-relaxed max-w-xs">
               Complete digital presence for engineers — portfolios, CVs, presentations, and LinkedIn.
             </p>
           </div>
@@ -42,22 +42,22 @@ export default function Footer() {
             <h4 className="font-display font-bold mb-4 text-aether-bright-cyan text-sm sm:text-base">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/services" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/services" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Portfolio & Website
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/services" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   CV & Career Docs
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/services" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Presentations
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/services" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   LinkedIn Optimization
                 </Link>
               </li>
@@ -69,22 +69,22 @@ export default function Footer() {
             <h4 className="font-display font-bold mb-4 text-aether-bright-cyan text-sm sm:text-base">Explore</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/portfolio" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/portfolio" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="/restaurant-websites" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/restaurant-websites" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Restaurant Websites
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/resources" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Resources
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/blog" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Blog
                 </Link>
               </li>
@@ -96,22 +96,22 @@ export default function Footer() {
             <h4 className="font-display font-bold mb-4 text-aether-bright-cyan text-sm sm:text-base">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/about" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/contact" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/request" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/request" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Request a Quote
                 </Link>
               </li>
               <li>
-                <Link href="/track" className="text-sky-white text-opacity-70 hover:text-aether-bright-cyan transition-colors duration-200">
+                <Link href="/track" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
                   Track Your Order
                 </Link>
               </li>
@@ -128,7 +128,7 @@ export default function Footer() {
                   href={link.href}
                   target={link.href.startsWith('http') ? '_blank' : undefined}
                   rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="p-2.5 rounded-lg bg-aether-electric-teal bg-opacity-20 text-aether-bright-cyan hover:bg-opacity-30 hover:text-sky-white transition-all duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
+                  className="p-2.5 rounded-lg bg-aether-electric-teal/20 text-aether-bright-cyan hover:bg-aether-electric-teal/30 hover:text-sky-white transition-all duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
                   aria-label={link.label}
                   title={link.label}
                 >
@@ -140,8 +140,8 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-aether-bright-cyan border-opacity-20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-sky-white text-opacity-70 text-center md:text-left">
+        <div className="border-t border-aether-bright-cyan/20 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-sky-white/70 text-center md:text-left">
             <p>&copy; {currentYear} AETHER. All rights reserved.</p>
             <div className="flex gap-6">
               <Link href="#" className="hover:text-aether-bright-cyan transition-colors duration-200">
