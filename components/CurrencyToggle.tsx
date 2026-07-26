@@ -4,7 +4,7 @@ import { useCurrency } from '@/lib/CurrencyContext';
 export default function CurrencyToggle() {
   const { currency, setCurrency } = useCurrency();
   return (
-    <div className="inline-flex items-center bg-white border border-aether-electric-teal border-opacity-20 rounded-full p-1">
+    <div className="inline-flex items-center bg-white border border-aether-electric-teal/20 rounded-full p-1">
       {(['PKR', 'USD'] as const).map((c) => (
         <button
           key={c}
