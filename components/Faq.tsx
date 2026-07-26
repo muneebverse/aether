@@ -21,7 +21,7 @@ export default function Faq({ faqs }: { faqs: FaqItem[] }) {
       {faqs.map((faq) => (
         <div 
           key={faq.id} 
-          className="card bg-sky-white border-aether-electric-teal border-opacity-20 hover:border-opacity-40"
+          className="card bg-sky-white border-aether-electric-teal/20 hover:border-aether-electric-teal/40"
         >
           <button
             onClick={() => toggle(faq.id)}
@@ -40,8 +40,8 @@ export default function Faq({ faqs }: { faqs: FaqItem[] }) {
           </button>
 
           {openId === faq.id && (
-            <div className="mt-4 pt-4 border-t border-aether-electric-teal border-opacity-10 animate-fade-in-down">
-              <p className="text-deep-ink text-opacity-70 leading-relaxed">
+            <div className="mt-4 pt-4 border-t border-aether-electric-teal/10 animate-fade-in-down">
+              <p className="text-deep-ink/70 leading-relaxed">
                 {faq.answer}
               </p>
             </div>
