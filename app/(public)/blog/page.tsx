@@ -46,7 +46,7 @@ export default async function Blog() {
           <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-sky-white">
             AETHER Blog
           </h1>
-          <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto">
+          <p className="text-lg text-sky-white/90 max-w-2xl mx-auto">
             Expert insights, career strategies, and practical tips to elevate your professional journey.
           </p>
         </div>
@@ -55,7 +55,7 @@ export default async function Blog() {
       {!allPosts.length && (
         <section className="py-24">
           <div className="container-aether text-center">
-            <p className="text-deep-ink text-opacity-70">
+            <p className="text-deep-ink/70">
               No posts published yet. Check back soon.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default async function Blog() {
               <h2 className="font-display font-bold text-3xl sm:text-4xl mb-4 text-sky-white">
                 {featured.title}
               </h2>
-              <p className="text-lg text-sky-white text-opacity-90 mb-6">
+              <p className="text-lg text-sky-white/90 mb-6">
                 {featured.excerpt}
               </p>
               <div className="flex flex-wrap gap-4 items-center mb-6 text-sm text-sky-white">
@@ -109,11 +109,11 @@ export default async function Blog() {
                     </Link>
                   </h3>
 
-                  <p className="text-deep-ink text-opacity-70 text-sm mb-6 flex-grow">
+                  <p className="text-deep-ink/70 text-sm mb-6 flex-grow">
                     {post.excerpt}
                   </p>
 
-                  <div className="flex flex-wrap gap-4 items-center text-xs text-deep-ink text-opacity-60 mb-4 pt-4 border-t border-aether-electric-teal border-opacity-10">
+                  <div className="flex flex-wrap gap-4 items-center text-xs text-deep-ink/60 mb-4 pt-4 border-t border-aether-electric-teal/10">
                     <div className="flex items-center gap-1">
                       <CalendarDays size={14} />
                       <span>{formatDate(post.published_at)}</span>
