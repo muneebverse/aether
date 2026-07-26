@@ -42,7 +42,7 @@ export default async function PortfolioPage() {
           <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-sky-white">
             Portfolio
           </h1>
-          <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto">
+          <p className="text-lg text-sky-white/90 max-w-2xl mx-auto">
             Robotics, automation, and engineering projects — a look at what we build.
           </p>
         </div>
@@ -51,7 +51,7 @@ export default async function PortfolioPage() {
       <section className="py-24 section-spacing">
         <div className="container-aether">
           {projects.length === 0 && (
-            <p className="text-center text-deep-ink text-opacity-70">
+            <p className="text-center text-deep-ink/70">
               No portfolio projects published yet. Check back soon.
             </p>
           )}
@@ -70,7 +70,7 @@ export default async function PortfolioPage() {
                   </div>
                 )}
 
-                <span className="inline-block bg-aether-electric-teal bg-opacity-10 text-aether-electric-teal px-3 py-1 rounded text-xs font-bold mb-3 w-fit">
+                <span className="inline-block bg-aether-electric-teal/10 text-aether-electric-teal px-3 py-1 rounded text-xs font-bold mb-3 w-fit">
                   {CATEGORY_LABEL[project.category] || project.category}
                 </span>
 
@@ -78,7 +78,7 @@ export default async function PortfolioPage() {
                   {project.title}
                 </h3>
 
-                <p className="text-deep-ink text-opacity-70 text-sm mb-4 flex-grow">
+                <p className="text-deep-ink/70 text-sm mb-4 flex-grow">
                   {project.description}
                 </p>
 
@@ -87,7 +87,7 @@ export default async function PortfolioPage() {
                     {project.tech_tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs bg-aether-bright-cyan bg-opacity-10 text-aether-deep-teal px-2 py-1 rounded"
+                        className="text-xs bg-aether-bright-cyan/10 text-aether-deep-teal px-2 py-1 rounded"
                       >
                         {tag}
                       </span>
@@ -111,7 +111,7 @@ export default async function PortfolioPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-aether-electric-teal bg-opacity-5">
+      <section className="py-16 bg-aether-electric-teal/5">
         <div className="container-aether text-center">
           <h2 className="font-display font-bold text-2xl sm:text-3xl mb-4 text-aether-deep-teal">
             Want something built for you?
