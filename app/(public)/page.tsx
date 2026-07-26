@@ -119,7 +119,7 @@ export default function Home() {
             {/* Left Content */}
             <div>
               {/* Badge */}
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-aether-electric-teal border-opacity-30 bg-aether-electric-teal bg-opacity-5 mb-6 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}>
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-aether-electric-teal/30 bg-aether-electric-teal/5 mb-6 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}>
                 <Sparkles size={16} className="text-aether-bright-cyan" />
                 <span className="text-sm font-500 text-aether-deep-teal">Transform Your Professional Identity</span>
               </div>
@@ -130,7 +130,7 @@ export default function Home() {
               </h1>
 
               {/* Subheading */}
-              <p className={`text-lg text-deep-ink text-opacity-70 mb-8 max-w-lg leading-relaxed ${isLoaded ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'}`}>
+              <p className={`text-lg text-deep-ink/70 mb-8 max-w-lg leading-relaxed ${isLoaded ? 'animate-fade-in-up animate-delay-200' : 'opacity-0'}`}>
                 Transform your professional application from invisible to unmissable. Your resume is your first impression. Let's make it count—ATS optimized, visually stunning, and strategically positioned.
               </p>
 
@@ -167,8 +167,8 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-aether-electric-teal via-aether-bright-cyan to-aether-sky-cyan rounded-2xl blur-2xl opacity-30 animate-gradient-shift"></div>
 
-                <div className="relative bg-sky-white bg-opacity-90 backdrop-blur-md rounded-2xl p-8 border border-aether-electric-teal border-opacity-20 shadow-xl">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-aether-bright-cyan bg-opacity-10 border border-aether-bright-cyan border-opacity-30 mb-6">
+                <div className="relative bg-sky-white/90 backdrop-blur-md rounded-2xl p-8 border border-aether-electric-teal/20 shadow-xl">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-aether-bright-cyan/10 border border-aether-bright-cyan/30 mb-6">
                     <div className="w-2 h-2 bg-aether-bright-cyan rounded-full animate-pulse"></div>
                     <span className="text-xs font-600 text-aether-electric-teal uppercase">What you get</span>
                   </div>
@@ -176,19 +176,19 @@ export default function Home() {
                   <div className="space-y-4">
                     <div>
                       <h3 className="font-display font-bold text-2xl text-aether-deep-teal mb-2">Your Resume, Evolved</h3>
-                      <p className="text-deep-ink text-opacity-60 text-sm leading-relaxed">
+                      <p className="text-deep-ink/60 text-sm leading-relaxed">
                         Strategic keywords, human-centered design, and ATS compatibility in one powerful package.
                       </p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-3 pt-4">
-                      <div className="bg-aether-electric-teal bg-opacity-5 rounded-lg p-3 border border-aether-electric-teal border-opacity-10">
+                      <div className="bg-aether-electric-teal/5 rounded-lg p-3 border border-aether-electric-teal/10">
                         <div className="text-xl font-display font-bold text-aether-electric-teal">5-7 days</div>
-                        <div className="text-xs text-deep-ink text-opacity-60">Turnaround Time</div>
+                        <div className="text-xs text-deep-ink/60">Turnaround Time</div>
                       </div>
-                      <div className="bg-aether-bright-cyan bg-opacity-5 rounded-lg p-3 border border-aether-bright-cyan border-opacity-10">
+                      <div className="bg-aether-bright-cyan/5 rounded-lg p-3 border border-aether-bright-cyan/10">
                         <div className="text-xl font-display font-bold text-aether-bright-cyan">1:1</div>
-                        <div className="text-xs text-deep-ink text-opacity-60">Direct Collaboration</div>
+                        <div className="text-xs text-deep-ink/60">Direct Collaboration</div>
                       </div>
                     </div>
                   </div>
@@ -207,7 +207,7 @@ export default function Home() {
         <div className="container-aether">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-4xl mb-4">Why Choose AETHER?</h2>
-            <p className="text-lg text-deep-ink text-opacity-70 max-w-2xl mx-auto">
+            <p className="text-lg text-deep-ink/70 max-w-2xl mx-auto">
               We don't just update your resume. We clarify your professional narrative and position you for roles that match your aspirations.
             </p>
           </div>
@@ -219,11 +219,11 @@ export default function Home() {
                 className={`card bg-white ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: `${(idx + 5) * 100}ms` }}
               >
-                <div className="mb-4 p-3 w-fit rounded-lg bg-aether-bright-cyan bg-opacity-10 border border-aether-bright-cyan border-opacity-20">
+                <div className="mb-4 p-3 w-fit rounded-lg bg-aether-bright-cyan/10 border border-aether-bright-cyan/20">
                   {benefit.icon}
                 </div>
                 <h3 className="font-display font-bold text-lg mb-2 text-aether-deep-teal">{benefit.title}</h3>
-                <p className="text-deep-ink text-opacity-70 text-sm leading-relaxed">
+                <p className="text-deep-ink/70 text-sm leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
@@ -233,11 +233,11 @@ export default function Home() {
       </section>
 
       {/* Trust Section — replaces fabricated stats/reviews with honest, verifiable claims */}
-      <section className="py-24 bg-aether-electric-teal bg-opacity-5">
+      <section className="py-24 bg-aether-electric-teal/5">
         <div className="container-aether">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-4xl mb-4">What Working With Us Looks Like</h2>
-            <p className="text-lg text-deep-ink text-opacity-70 max-w-2xl mx-auto">
+            <p className="text-lg text-deep-ink/70 max-w-2xl mx-auto">
               We're early on our journey and growing — here's exactly what you can expect.
             </p>
           </div>
@@ -245,11 +245,11 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {trustPillars.map((pillar, idx) => (
               <div key={idx} className="card bg-white text-center">
-                <div className="mb-4 p-3 w-fit mx-auto rounded-lg bg-aether-electric-teal bg-opacity-10 border border-aether-electric-teal border-opacity-20">
+                <div className="mb-4 p-3 w-fit mx-auto rounded-lg bg-aether-electric-teal/10 border border-aether-electric-teal/20">
                   {pillar.icon}
                 </div>
                 <h3 className="font-display font-bold text-lg mb-2 text-aether-deep-teal">{pillar.title}</h3>
-                <p className="text-deep-ink text-opacity-70 text-sm leading-relaxed">{pillar.description}</p>
+                <p className="text-deep-ink/70 text-sm leading-relaxed">{pillar.description}</p>
               </div>
             ))}
           </div>
@@ -258,7 +258,7 @@ export default function Home() {
           <div className="mt-16">
             <div className="text-center mb-12">
               <h3 className="font-display font-bold text-2xl mb-3 text-aether-deep-teal">Real Results from Real Clients</h3>
-              <p className="text-deep-ink text-opacity-70">Engineers and professionals transforming their careers with AETHER.</p>
+              <p className="text-deep-ink/70">Engineers and professionals transforming their careers with AETHER.</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -284,7 +284,7 @@ export default function Home() {
               ].map((testimonial, idx) => (
                 <div 
                   key={idx}
-                  className={`bg-white rounded-lg border border-aether-electric-teal border-opacity-20 p-6 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
+                  className={`bg-white rounded-lg border border-aether-electric-teal/20 p-6 ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
                   style={{ animationDelay: `${(idx + 9) * 100}ms` }}
                 >
                   <div className="flex gap-0.5 mb-4">
@@ -297,7 +297,7 @@ export default function Home() {
                   <p className="text-deep-ink mb-4 italic">"{testimonial.quote}"</p>
                   <div>
                     <p className="font-display font-bold text-aether-deep-teal text-sm">{testimonial.name}</p>
-                    <p className="text-xs text-deep-ink text-opacity-60">{testimonial.role}</p>
+                    <p className="text-xs text-deep-ink/60">{testimonial.role}</p>
                   </div>
                 </div>
               ))}
@@ -311,7 +311,7 @@ export default function Home() {
         <div className="container-aether">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-4xl text-sky-white mb-4">Our Services</h2>
-            <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto">
+            <p className="text-lg text-sky-white/90 max-w-2xl mx-auto">
               Everything you need to stand out and get hired.
             </p>
           </div>
@@ -333,13 +333,13 @@ export default function Home() {
             ].map((service, idx) => (
               <div 
                 key={idx} 
-                className={`bg-sky-white bg-opacity-10 backdrop-blur-md rounded-xl p-8 border border-sky-white border-opacity-20 hover:border-opacity-40 transition-all ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
+                className={`bg-sky-white/10 backdrop-blur-md rounded-xl p-8 border border-sky-white/20 hover:border-sky-white/40 transition-all ${isLoaded ? 'animate-fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: `${(idx + 8) * 100}ms` }}
               >
                 <h3 className="font-display font-bold text-xl mb-3 text-sky-white">
                   {service.title}
                 </h3>
-                <p className="text-sky-white text-opacity-90 mb-4">
+                <p className="text-sky-white/90 mb-4">
                   {service.description}
                 </p>
                 <Link href="/services" className="text-sky-white font-500 hover:text-aether-bright-cyan transition-colors inline-flex items-center gap-2 group">
@@ -367,7 +367,7 @@ export default function Home() {
 
             <div className="relative z-10">
               <h2 className="font-display font-bold text-4xl text-sky-white mb-4">Ready to Transform Your Career?</h2>
-              <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto mb-8">
+              <p className="text-lg text-sky-white/90 max-w-2xl mx-auto mb-8">
                 Your next opportunity is waiting. Let's make sure your application gets you there.
               </p>
               <Link href="/request" className="btn btn-primary bg-aether-bright-cyan text-aether-deep-teal hover:bg-sky-white">
@@ -383,7 +383,7 @@ export default function Home() {
         <div className="container-aether">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-4xl mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-deep-ink text-opacity-70">
+            <p className="text-lg text-deep-ink/70">
               Have questions? We've got answers.
             </p>
           </div>
