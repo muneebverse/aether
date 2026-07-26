@@ -16,7 +16,7 @@ export default function Contact() {
           <h1 className="text-4xl lg:text-5xl font-display font-bold mb-4 text-sky-white">
             Get In Touch
           </h1>
-          <p className="text-lg text-sky-white text-opacity-90 max-w-2xl mx-auto">
+          <p className="text-lg text-sky-white/90 max-w-2xl mx-auto">
             Ready to elevate your career? Let's talk about your goals and how AETHER can help.
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function Contact() {
                 <div key={idx} className="flex gap-4">
                   <div className="flex-shrink-0">{item.icon}</div>
                   <div>
-                    <p className="text-deep-ink text-opacity-70 text-sm mb-1">
+                    <p className="text-deep-ink/70 text-sm mb-1">
                       {item.label}
                     </p>
                     {item.href ? (
@@ -67,17 +67,17 @@ export default function Contact() {
               ))}
 
               {/* Response Time */}
-              <div className="card bg-aether-electric-teal bg-opacity-10 border-aether-electric-teal">
+              <div className="card bg-aether-electric-teal/10 border-aether-electric-teal">
                 <div className="flex items-center gap-2 mb-2">
                   <Clock size={16} className="text-aether-electric-teal" />
                   <span className="font-semibold text-sm text-deep-ink">Response Time</span>
                 </div>
-                <p className="text-sm text-deep-ink text-opacity-70">
+                <p className="text-sm text-deep-ink/70">
                   Usually within 24 hours. We read every message and respond personally to every inquiry.
                 </p>
               </div>
 
-              <div className="text-sm text-deep-ink text-opacity-60">
+              <div className="text-sm text-deep-ink/60">
                 Already submitted a request?{' '}
                 <a href="/track" className="text-aether-electric-teal font-semibold hover:underline">
                   Track your order status
@@ -91,10 +91,10 @@ export default function Contact() {
                 {orderId ? (
                   <div className="text-center space-y-4 py-8">
                     <h3 className="font-display font-bold text-2xl text-aether-deep-teal">Thank you!</h3>
-                    <p className="text-deep-ink text-opacity-70">
+                    <p className="text-deep-ink/70">
                       Your request has been received. Save your tracking code to check status anytime:
                     </p>
-                    <div className="inline-block bg-sky-white border border-aether-electric-teal border-opacity-20 rounded-lg px-4 py-2 font-mono text-lg font-bold tracking-wider text-deep-ink">
+                    <div className="inline-block bg-sky-white border border-aether-electric-teal/20 rounded-lg px-4 py-2 font-mono text-lg font-bold tracking-wider text-deep-ink">
                       {orderId}
                     </div>
                     <div>
@@ -116,11 +116,11 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-aether-electric-teal bg-opacity-5 py-24">
+      <section className="bg-aether-electric-teal/5 py-24">
         <div className="container-aether">
           <div className="text-center mb-16">
             <h2 className="font-display font-bold text-4xl mb-4">Quick Answers</h2>
-            <p className="text-lg text-deep-ink text-opacity-70">
+            <p className="text-lg text-deep-ink/70">
               Common questions about working with AETHER.
             </p>
           </div>
@@ -148,7 +148,7 @@ export default function Contact() {
                 <h3 className="font-display font-bold text-lg mb-2 text-aether-electric-teal">
                   {item.q}
                 </h3>
-                <p className="text-deep-ink text-opacity-70 text-sm">{item.a}</p>
+                <p className="text-deep-ink/70 text-sm">{item.a}</p>
               </div>
             ))}
           </div>
