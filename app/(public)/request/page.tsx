@@ -24,17 +24,17 @@ function RequestPageContent() {
 
   return (
     <div className="min-h-screen bg-sky-white flex items-center justify-center p-6">
-      <div className="max-w-xl w-full bg-white border border-aether-electric-teal border-opacity-10 rounded-expansive p-8 shadow-subtle">
+      <div className="max-w-xl w-full bg-white border border-aether-electric-teal/10 rounded-expansive p-8 shadow-subtle">
         {orderId ? (
           <div className="text-center space-y-6 py-4">
-            <div className="w-16 h-16 bg-sky-white border border-aether-electric-teal border-opacity-20 rounded-full flex items-center justify-center mx-auto text-aether-success">
+            <div className="w-16 h-16 bg-sky-white border border-aether-electric-teal/20 rounded-full flex items-center justify-center mx-auto text-aether-success">
               <CheckCircle2 size={32} />
             </div>
             <div className="space-y-2">
               <h1 className="font-display font-bold text-2xl text-aether-deep-teal">Request Received!</h1>
-              <p className="text-deep-ink text-opacity-70 text-sm">Save this tracking code to check your order status anytime.</p>
+              <p className="text-deep-ink/70 text-sm">Save this tracking code to check your order status anytime.</p>
             </div>
-            <div className="bg-sky-white border border-aether-electric-teal border-opacity-15 rounded-tight p-4 flex items-center justify-between font-mono text-lg text-deep-ink">
+            <div className="bg-sky-white border border-aether-electric-teal/15 rounded-tight p-4 flex items-center justify-between font-mono text-lg text-deep-ink">
               <span className="font-bold tracking-wider">{orderId}</span>
               <button onClick={handleCopy} className="text-xs font-semibold bg-aether-electric-teal hover:bg-aether-deep-teal text-sky-white px-3 py-1.5 rounded-tight transition-all min-h-[36px] touch-manipulation">
                 {copied ? 'Copied' : 'Copy Code'}
@@ -45,7 +45,7 @@ function RequestPageContent() {
         ) : (
           <>
             <h1 className="font-display font-bold text-2xl text-aether-deep-teal mb-1">Request Service Build</h1>
-            <p className="text-deep-ink text-opacity-70 text-sm mb-6">Tell us what you need — we'll follow up shortly.</p>
+            <p className="text-deep-ink/70 text-sm mb-6">Tell us what you need — we'll follow up shortly.</p>
             <RequestForm onSuccess={setOrderId} prefillService={prefillService} prefillNote={prefillNote} />
           </>
         )}
