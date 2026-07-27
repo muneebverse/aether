@@ -8,13 +8,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Teal brand shades — always referenced as `aether-*` throughout the app
+        // Brand shades — always referenced as `aether-*` throughout the app
         // (e.g. bg-aether-electric-teal), so these stay nested under `aether`.
+        // Deep Blue Trust palette (hue 215°), built on the ratio system:
+        //   Accent   = 100% sat / 60% light -> electric-teal
+        //   Neutral  =  60% sat / 72% light -> sky-cyan
+        //   Contrast =  85% sat / 30% light -> deep-teal
+        // bright-cyan is a lighter tint of Accent, kept distinct for hover states.
         aether: {
-          'deep-teal': '#0097A7',
-          'electric-teal': '#00BCD4',
-          'bright-cyan': '#00E5FF',
-          'sky-cyan': '#4DD0E1',
+          'deep-teal': '#0B428E',
+          'electric-teal': '#3388FF',
+          'bright-cyan': '#5CA0FF',
+          'sky-cyan': '#8DB0E2',
           // Also mirrored here since some files use the `aether-` prefixed
           // form for these too (e.g. text-aether-deep-ink) — see below.
           'sky-white': '#FAFAF8',
@@ -61,7 +66,7 @@ const config: Config = {
       },
       boxShadow: {
         subtle: '0 1px 3px rgba(15, 15, 18, 0.1)',
-        card: '0 1px 3px rgba(0, 151, 167, 0.1)',
+        card: '0 1px 3px rgba(11, 66, 142, 0.1)',
       },
       transitionDuration: {
         fast: '200ms',
