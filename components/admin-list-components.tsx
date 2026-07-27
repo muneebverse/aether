@@ -31,7 +31,7 @@ export function ListPageHeader({
       {newHref && (
         <Link
           href={newHref}
-          className="flex items-center gap-1.5 bg-gradient-to-r from-aether-electric-teal to-aether-bright-cyan text-white rounded-lg px-4 py-2 text-sm font-semibold hover:shadow-lg hover:scale-105 transition-all"
+          className="flex items-center gap-1.5 bg-aether-electric-teal text-white rounded-lg px-4 py-2 text-sm font-semibold hover:bg-aether-deep-teal transition-colors"
         >
           <Plus size={16} />
           {newLabel}

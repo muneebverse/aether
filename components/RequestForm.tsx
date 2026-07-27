@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { AlertCircle, CheckCircle2, Loader } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Loader, Zap } from 'lucide-react';
 
 const SERVICE_OPTIONS = [
   'Portfolio & Website',
@@ -176,8 +176,9 @@ export default function RequestForm({
           className="w-full px-4 py-2.5 rounded-lg border border-aether-electric-teal/20 bg-sky-white text-deep-ink focus:border-aether-bright-cyan/100 transition-all"
         />
         {isUrgent && (
-          <p className="mt-2 text-xs text-aether-alert flex items-center gap-1 font-medium">
-            ⚡ Rush request (within 5 days) — a rush fee may apply
+          <p className="mt-2 text-xs text-alert flex items-center gap-1 font-medium">
+            <Zap size={13} className="shrink-0" />
+            Rush request (within 5 days) — a rush fee may apply
           </p>
         )}
       </div>

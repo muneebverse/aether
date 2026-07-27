@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ChevronLeft, Loader } from 'lucide-react';
+import { ChevronLeft, Loader, AlertCircle } from 'lucide-react';
 
 /**
  * FormWrapper - Wraps entire admin form with header and layout
@@ -18,24 +18,24 @@ export function FormWrapper({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-white to-aether-electric-teal to-opacity-5 py-12">
+    <div className="min-h-screen bg-gray-50 py-10">
       <div className="container-aether max-w-2xl">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-6">
           <Link
             href={backHref}
-            className="flex items-center gap-2 text-sm font-semibold text-aether-electric-teal hover:text-aether-deep-teal transition-colors mb-4"
+            className="flex items-center gap-2 text-sm font-semibold text-aether-electric-teal hover:text-aether-deep-teal transition-colors mb-3"
           >
             <ChevronLeft size={16} />
             Back
           </Link>
 
-          <h1 className="text-4xl font-bold text-aether-deep-teal mb-2">{title}</h1>
-          {description && <p className="text-deep-ink/70">{description}</p>}
+          <h1 className="text-2xl font-display font-bold text-aether-deep-teal mb-1">{title}</h1>
+          {description && <p className="text-sm text-deep-ink/60">{description}</p>}
         </div>
 
         {/* Form Card */}
-        <div className="bg-white rounded-2xl border border-aether-electric-teal/10 p-8 shadow-sm">
+        <div className="bg-white rounded-xl border border-aether-electric-teal/10 p-6 sm:p-8 shadow-subtle">
           {children}
         </div>
       </div>
@@ -75,7 +75,12 @@ export function FormField({
         {children}
       </div>
 
-      {error && <p className="text-xs text-aether-alert font-medium flex items-center gap-1">⚠️ {error}</p>}
+      {error && (
+        <p className="text-xs text-alert font-medium flex items-center gap-1.5">
+          <AlertCircle size={13} className="shrink-0" />
+          {error}
+        </p>
+      )}
     </div>
   );
 }
@@ -100,7 +105,7 @@ export function FormInput({
   const input = (
     <input
       {...props}
-      className={`w-full px-4 py-2.5 rounded-lg border-2 bg-sky-white text-deep-ink placeholder-neutral transition-all ${
+      className={`w-full px-4 py-2.5 rounded-lg border bg-sky-white text-deep-ink placeholder-neutral transition-all ${
         error
           ? 'border-aether-alert focus:border-aether-alert'
           : 'border-aether-electric-teal/20 focus:border-aether-bright-cyan/100'
@@ -139,7 +144,7 @@ export function FormTextarea({
   const textarea = (
     <textarea
       {...props}
-      className={`w-full px-4 py-2.5 rounded-lg border-2 bg-sky-white text-deep-ink placeholder-neutral transition-all resize-none ${
+      className={`w-full px-4 py-2.5 rounded-lg border bg-sky-white text-deep-ink placeholder-neutral transition-all resize-none ${
         error
           ? 'border-aether-alert focus:border-aether-alert'
           : 'border-aether-electric-teal/20 focus:border-aether-bright-cyan/100'
@@ -183,7 +188,7 @@ export function FormSelect({
   const select = (
     <select
       {...props}
-      className={`w-full px-4 py-2.5 rounded-lg border-2 bg-sky-white text-deep-ink transition-all ${
+      className={`w-full px-4 py-2.5 rounded-lg border bg-sky-white text-deep-ink transition-all ${
         error
           ? 'border-aether-alert focus:border-aether-alert'
           : 'border-aether-electric-teal/20 focus:border-aether-bright-cyan/100'
@@ -222,11 +227,11 @@ export function FormButtons({
   isDestructive?: boolean;
 }) {
   return (
-    <div className="flex gap-4 pt-8 mt-8 border-t border-aether-electric-teal/10">
+    <div className="flex gap-3 pt-6 mt-6 border-t border-aether-electric-teal/10">
       {cancelHref ? (
         <Link
           href={cancelHref}
-          className="px-6 py-2.5 rounded-lg border-2 border-aether-electric-teal text-aether-electric-teal font-semibold hover:bg-aether-electric-teal hover:text-white transition-all"
+          className="px-5 py-2.5 rounded-lg border border-aether-electric-teal/25 text-deep-ink font-semibold text-sm hover:bg-aether-electric-teal/5 transition-colors"
         >
           Cancel
         </Link>
@@ -234,7 +239,7 @@ export function FormButtons({
         <button
           type="button"
           onClick={onCancel}
-          className="px-6 py-2.5 rounded-lg border-2 border-aether-electric-teal text-aether-electric-teal font-semibold hover:bg-aether-electric-teal hover:text-white transition-all"
+          className="px-5 py-2.5 rounded-lg border border-aether-electric-teal/25 text-deep-ink font-semibold text-sm hover:bg-aether-electric-teal/5 transition-colors"
         >
           Cancel
         </button>
@@ -243,13 +248,13 @@ export function FormButtons({
       <button
         type="submit"
         disabled={isLoading}
-        className={`px-6 py-2.5 rounded-lg font-semibold flex items-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed ml-auto ${
+        className={`px-5 py-2.5 rounded-lg font-semibold text-sm flex items-center gap-2 transition-colors disabled:opacity-60 disabled:cursor-not-allowed ml-auto ${
           isDestructive
-            ? 'bg-aether-alert text-white hover:bg-red-700'
-            : 'bg-gradient-to-r from-aether-electric-teal to-aether-bright-cyan text-white hover:shadow-lg hover:scale-105'
+            ? 'bg-alert text-white hover:bg-red-700'
+            : 'bg-aether-electric-teal text-white hover:bg-aether-deep-teal'
         }`}
       >
-        {isLoading && <Loader size={16} className="animate-spin" />}
+        {isLoading && <Loader size={15} className="animate-spin" />}
         {submitLabel}
       </button>
     </div>
@@ -271,8 +276,8 @@ export function FormGroup({
   children: React.ReactNode;
 }) {
   return (
-    <div className={title ? 'space-y-6 pb-8 border-b border-aether-electric-teal/10' : 'space-y-6'}>
-      {title && <h3 className="text-lg font-bold text-aether-deep-teal">{title}</h3>}
+    <div className={title ? 'space-y-4 pb-6 border-b border-aether-electric-teal/10' : 'space-y-4'}>
+      {title && <h3 className="text-sm font-semibold uppercase tracking-wide text-aether-deep-teal">{title}</h3>}
       <div className="space-y-4">{children}</div>
     </div>
   );

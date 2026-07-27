@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { EASE_OUT } from '@/lib/motion-easing';
 
 interface FaqItem {
   id: string;
@@ -17,37 +19,45 @@ export default function Faq({ faqs }: { faqs: FaqItem[] }) {
   };
 
   return (
-    <div className="space-y-4">
-      {faqs.map((faq) => (
-        <div 
-          key={faq.id} 
-          className="card bg-sky-white border-aether-electric-teal/20 hover:border-aether-electric-teal/40"
-        >
-          <button
-            onClick={() => toggle(faq.id)}
-            className="w-full flex justify-between items-center gap-4 text-left"
-            aria-expanded={openId === faq.id}
-          >
-            <h3 className="font-display font-bold text-lg text-aether-deep-teal">
-              {faq.question}
-            </h3>
-            <ChevronDown
-              size={24}
-              className={`text-aether-electric-teal transition-transform flex-shrink-0 ${
-                openId === faq.id ? 'rotate-180 text-aether-bright-cyan' : ''
-              }`}
-            />
-          </button>
+    <div className="space-y-3">
+      {faqs.map((faq) => {
+        const isOpen = openId === faq.id;
+        return (
+          <div key={faq.id} className="card">
+            <button
+              onClick={() => toggle(faq.id)}
+              className="w-full flex justify-between items-center gap-4 text-left"
+              aria-expanded={isOpen}
+            >
+              <h3 className="font-display font-semibold text-base sm:text-lg text-deep-ink">
+                {faq.question}
+              </h3>
+              <ChevronDown
+                size={20}
+                className={`text-aether-electric-teal shrink-0 transition-transform duration-300 ${
+                  isOpen ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
 
-          {openId === faq.id && (
-            <div className="mt-4 pt-4 border-t border-aether-electric-teal/10 animate-fade-in-down">
-              <p className="text-deep-ink/70 leading-relaxed">
-                {faq.answer}
-              </p>
-            </div>
-          )}
-        </div>
-      ))}
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: EASE_OUT }}
+                  className="overflow-hidden"
+                >
+                  <p className="mt-4 text-deep-ink/70 leading-relaxed text-sm sm:text-base">
+                    {faq.answer}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
     </div>
   );
 }

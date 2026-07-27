@@ -1,154 +1,143 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail } from 'lucide-react';
-import { InstagramIcon, TiktokIcon, LinkedinIcon, WhatsappIcon } from './icons/BrandIcons';
 import { SOCIAL_LINKS } from '@/lib/social-links';
+import { InstagramIcon, TiktokIcon, LinkedinIcon, WhatsappIcon } from '@/components/icons/BrandIcons';
+import { Mail } from 'lucide-react';
+
+const SERVICE_LINKS = [
+  { href: '/services', label: 'Portfolio & Websites' },
+  { href: '/services', label: 'CV & Career Docs' },
+  { href: '/services', label: 'Presentations' },
+  { href: '/services', label: 'LinkedIn Optimization' },
+];
+
+const COMPANY_LINKS = [
+  { href: '/about', label: 'About' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/portfolio', label: 'Our Work' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/track', label: 'Track Order' },
+];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const connectLinks = [
-    { href: SOCIAL_LINKS.email.url, label: SOCIAL_LINKS.email.label, icon: <Mail size={20} /> },
-    { href: SOCIAL_LINKS.instagram.url, label: SOCIAL_LINKS.instagram.label, icon: <InstagramIcon size={20} /> },
-    { href: SOCIAL_LINKS.tiktok.url, label: SOCIAL_LINKS.tiktok.label, icon: <TiktokIcon size={20} /> },
-    { href: SOCIAL_LINKS.whatsapp.url, label: SOCIAL_LINKS.whatsapp.label, icon: <WhatsappIcon size={20} /> },
-    { href: SOCIAL_LINKS.linkedin.url, label: SOCIAL_LINKS.linkedin.label, icon: <LinkedinIcon size={20} /> },
-  ];
-
   return (
-    <footer className="bg-gradient-to-b from-aether-deep-teal to-aether-electric-teal text-sky-white">
-      <div className="container-aether py-12 sm:py-16">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 mb-12">
+    <footer className="bg-aether-deep-teal text-sky-white">
+      <div className="container-aether py-16">
+        <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1fr_1fr] gap-10 mb-12">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              {/* Transparent-background icon logo — reads cleanly on the teal footer */}
+          <div>
+            <Link href="/" className="flex items-center gap-2 mb-4 w-fit">
               <Image
                 src="/logos/aether-logo-icon.png"
-                alt="AETHER Logo"
-                width={40}
-                height={40}
-                className="w-9 h-9 sm:w-10 sm:h-10 flex-shrink-0"
+                alt="AETHER"
+                width={32}
+                height={32}
+                className="w-8 h-8"
               />
-              <span className="font-display font-bold text-lg">AETHER</span>
-            </div>
-            <p className="text-sky-white/70 text-sm leading-relaxed max-w-xs">
-              Complete digital presence for engineers — portfolios, CVs, presentations, and LinkedIn.
+              <span className="font-display font-bold text-lg tracking-tight">AETHER</span>
+            </Link>
+            <p className="text-sky-white/65 text-sm leading-relaxed max-w-xs">
+              Portfolios, CVs, presentations, and LinkedIn — built for engineers who want to be taken seriously.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-bold mb-4 text-aether-bright-cyan text-sm sm:text-base">Services</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/services" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Portfolio & Website
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  CV & Career Docs
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Presentations
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  LinkedIn Optimization
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Explore — the sections that were missing from the site entirely */}
-          <div>
-            <h4 className="font-display font-bold mb-4 text-aether-bright-cyan text-sm sm:text-base">Explore</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/portfolio" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link href="/restaurant-websites" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Restaurant Websites
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Resources
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Blog
-                </Link>
-              </li>
+            <h4 className="font-display font-semibold text-sm mb-4 text-aether-bright-cyan uppercase tracking-wide">
+              Services
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              {SERVICE_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sky-white/75 hover:text-aether-bright-cyan transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="font-display font-bold mb-4 text-aether-bright-cyan text-sm sm:text-base">Company</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/about" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/request" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Request a Quote
-                </Link>
-              </li>
-              <li>
-                <Link href="/track" className="text-sky-white/70 hover:text-aether-bright-cyan transition-colors duration-200">
-                  Track Your Order
-                </Link>
-              </li>
+            <h4 className="font-display font-semibold text-sm mb-4 text-aether-bright-cyan uppercase tracking-wide">
+              Company
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-sky-white/75 hover:text-aether-bright-cyan transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Connect — pulled from lib/social-links.ts, update links there */}
-          <div className="col-span-2 md:col-span-1">
-            <h4 className="font-display font-bold mb-4 text-aether-bright-cyan text-sm sm:text-base">Connect</h4>
+          {/* Connect */}
+          <div>
+            <h4 className="font-display font-semibold text-sm mb-4 text-aether-bright-cyan uppercase tracking-wide">
+              Connect
+            </h4>
             <div className="flex flex-wrap gap-3">
-              {connectLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="p-2.5 rounded-lg bg-aether-electric-teal/20 text-aether-bright-cyan hover:bg-aether-electric-teal/30 hover:text-sky-white transition-all duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center touch-manipulation"
-                  aria-label={link.label}
-                  title={link.label}
-                >
-                  {link.icon}
-                </a>
-              ))}
+              <a
+                href={SOCIAL_LINKS.email.url}
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-sky-white/10 text-sky-white hover:bg-aether-bright-cyan hover:text-aether-deep-teal transition-colors"
+                aria-label="Email"
+              >
+                <Mail size={16} />
+              </a>
+              <a
+                href={SOCIAL_LINKS.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-sky-white/10 text-sky-white hover:bg-aether-bright-cyan hover:text-aether-deep-teal transition-colors"
+                aria-label="Instagram"
+              >
+                <InstagramIcon size={16} />
+              </a>
+              <a
+                href={SOCIAL_LINKS.tiktok.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-sky-white/10 text-sky-white hover:bg-aether-bright-cyan hover:text-aether-deep-teal transition-colors"
+                aria-label="TikTok"
+              >
+                <TiktokIcon size={16} />
+              </a>
+              <a
+                href={SOCIAL_LINKS.linkedin.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-sky-white/10 text-sky-white hover:bg-aether-bright-cyan hover:text-aether-deep-teal transition-colors"
+                aria-label="LinkedIn"
+              >
+                <LinkedinIcon size={16} />
+              </a>
+              <a
+                href={SOCIAL_LINKS.whatsapp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full flex items-center justify-center bg-sky-white/10 text-sky-white hover:bg-aether-bright-cyan hover:text-aether-deep-teal transition-colors"
+                aria-label="WhatsApp"
+              >
+                <WhatsappIcon size={16} />
+              </a>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-aether-bright-cyan/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-sky-white/70 text-center md:text-left">
+        <div className="border-t border-sky-white/15 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-sky-white/60">
             <p>&copy; {currentYear} AETHER. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link href="#" className="hover:text-aether-bright-cyan transition-colors duration-200">
-                Privacy Policy
+              <Link href="/contact" className="hover:text-aether-bright-cyan transition-colors">
+                Privacy Questions
               </Link>
-              <Link href="#" className="hover:text-aether-bright-cyan transition-colors duration-200">
-                Terms of Service
+              <Link href="/contact" className="hover:text-aether-bright-cyan transition-colors">
+                Terms Questions
               </Link>
             </div>
           </div>

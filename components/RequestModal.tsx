@@ -32,7 +32,7 @@ export default function RequestModal({
 
         {orderId ? (
           <div className="text-center space-y-6 py-4">
-            <div className="w-16 h-16 bg-sky-white border border-aether-electric-teal/20 rounded-full flex items-center justify-center mx-auto text-aether-success">
+            <div className="w-16 h-16 bg-sky-white border border-aether-electric-teal/20 rounded-full flex items-center justify-center mx-auto text-success">
               <CheckCircle2 size={32} />
             </div>
             <div className="space-y-2">
