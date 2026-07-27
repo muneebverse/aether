@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+
+@config "../tailwind.config.ts";
+
+:root {
+  --aether-deep-teal: #0B428E;
+  --aether-electric-teal: #3388FF;
+  --aether-bright-cyan: #5CA0FF;
+  --aether-sky-cyan: #8DB0E2;
+  --sky-white: #FAFAF8;
+  --deep-ink: #1a3a3a;
+  --success: #10B981;
+  --alert: #EF4444;
+  --neutral: #6B7280;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 0; /* prevents flex/grid children from forcing their container wider than the viewport */
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--sky-white);
+  color: var(--deep-ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Text containment — long words (emails, URLs, long tier/service names) no
+   longer push outside their card/container on small screens */
+h1, h2, h3, h4, h5, h6, p, span, a, li, button {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(36px, 8vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(28px, 5vw, 44px);
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: clamp(20px, 3vw, 30px);
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: var(--aether-electric-teal);
+  text-decoration: none;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--aether-bright-cyan);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Keyboard-navigation focus ring — visible on any interactive element,
+   but only when navigating by keyboard (not on mouse click), so it never
+   shows up as an unwanted outline on every tap for mouse/touch users. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--aether-electric-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: var(--aether-electric-teal);
+  color: var(--sky-white);
+  border: 2px solid transparent;
+  border-top-color: transparent;
+}
+
+.btn-primary:hover {
+  background-color: #0066F5;
+  border-top-color: var(--aether-bright-cyan);
+  border-top-width: 2px;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--aether-electric-teal);
+  border: 1px solid var(--aether-electric-teal);
+}
+
+.btn-secondary:hover {
+  border-width: 2px;
+  border-top-color: var(--aether-bright-cyan);
+  background-color: rgba(51, 136, 255, 0.05);
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  color: var(--aether-electric-teal);
+  padding: 0;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.btn-tertiary:hover {
+  text-decoration: underline;
+  color: var(--aether-bright-cyan);
+}
+
+/* Cards */
+.card {
+  background-color: var(--sky-white);
+  border: 1px solid rgba(51, 136, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  overflow: hidden;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+  }
+}
+
+.card:hover {
+  border-top: 2px solid var(--aether-bright-cyan);
+  box-shadow: 0 1px 3px rgba(51, 136, 255, 0.1);
+}
+
+/* Form Elements */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(51, 136, 255, 0.1);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  background-color: var(--sky-white);
+  color: var(--deep-ink);
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--aether-electric-teal);
+  border-width: 2px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--neutral);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--deep-ink);
+  text-transform: capitalize;
+}
+
+/* Simple entrance for server components that render static content and
+   can't use the Motion primitives (those require 'use client'). Used
+   sparingly — client pages use Reveal/StaggerGroup instead. */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out both;
+}
+@keyframes softPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.pulse-dot {
+  animation: softPulse 2s ease-in-out infinite;
+}
+
+/* Glass panel — used sparingly (Section 5 of the design skill: appropriate
+   for premium-consumer/media-overlay moments, not every card by default) */
+.glass {
+  background: rgba(250, 250, 248, 0.72);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: rgba(250, 250, 248, 0.96);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Utility Classes */
+.text-gradient {
+  background: linear-gradient(90deg, var(--aether-deep-teal), var(--aether-electric-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-bright {
+  background: linear-gradient(90deg, var(--aether-electric-teal), var(--aether-bright-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Spacing Scale */
+.section-spacing {
+  margin: 64px 0;
+}
+
+.section-spacing-sm {
+  margin: 48px 0;
+}
+
+.section-spacing-lg {
+  margin: 80px 0;
+}
+
+.container-aether {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 480px) {
+  .container-aether {
+    padding: 0 16px;
+  }
+}
+
+/* Visual Hierarchy */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--aether-electric-teal);
+  margin-bottom: 12px;
+}
+
+.caption {
+  font-size: 14px;
+  color: var(--neutral);
+  line-height: 1.5;
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .section-spacing {
+    margin: 48px 0;
+  }
+
+  .section-spacing-lg {
+    margin: 64px 0;
+  }
+
+  .container-aether {
+    padding: 0 16px;
+  }
+
+  /* Full-width buttons stack cleanly and stay tappable on small screens */
+  .btn {
+    padding: 12px 20px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+}
+
+/* Touch targets everywhere, not just inside the 640px block, so tablets
+   in portrait mode (641-767px) still get comfortably tappable controls */
+@media (max-width: 767px) {
+  .btn,
+  button,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+}
