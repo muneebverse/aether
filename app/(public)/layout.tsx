@@ -40,7 +40,7 @@ export default function RootLayout({
         <CurrencyProvider>
           <RequestModalProvider>
             <Navbar />
-            <main>{children}</main>
+            <main className="pb-16 sm:pb-24">{children}</main>
             <Footer />
           </RequestModalProvider>
         </CurrencyProvider>
