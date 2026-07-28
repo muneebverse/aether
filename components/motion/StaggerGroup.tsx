@@ -24,7 +24,7 @@ export function StaggerGroup({ children, className }: { children: ReactNode; cla
   const reduce = useReducedMotion();
   return (
     <motion.div
-      className={className}
+      className={`items-stretch ${className || ''}`}
       variants={reduce ? undefined : container}
       initial={reduce ? undefined : 'hidden'}
       whileInView={reduce ? undefined : 'show'}
@@ -38,7 +38,7 @@ export function StaggerGroup({ children, className }: { children: ReactNode; cla
 export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
   const reduce = useReducedMotion();
   return (
-    <motion.div className={`h-full ${className || ''}`} variants={reduce ? undefined : item}>
+    <motion.div className={`h-full flex flex-col ${className || ''}`} variants={reduce ? undefined : item}>
       {children}
     </motion.div>
   );
