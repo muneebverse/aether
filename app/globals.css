@@ -85,6 +85,7 @@ a:hover {
 }
 
 /* Buttons */
+@layer components {
 .btn {
   display: inline-flex;
   align-items: center;
@@ -99,6 +100,7 @@ a:hover {
   border: none;
   cursor: pointer;
   transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 }
 
 /* Keyboard-navigation focus ring — visible on any interactive element,
@@ -115,6 +117,7 @@ select:focus-visible,
   border-radius: 4px;
 }
 
+@layer components {
 .btn-primary {
   background-color: var(--aether-electric-teal);
   color: var(--sky-white);
@@ -153,8 +156,10 @@ select:focus-visible,
   text-decoration: underline;
   color: var(--aether-bright-cyan);
 }
+}
 
 /* Cards */
+@layer components {
 .card {
   background-color: var(--sky-white);
   border: 1px solid rgba(51, 136, 255, 0.1);
@@ -175,8 +180,10 @@ select:focus-visible,
   border-top: 2px solid var(--aether-bright-cyan);
   box-shadow: 0 1px 3px rgba(51, 136, 255, 0.1);
 }
+}
 
 /* Form Elements */
+@layer components {
 input,
 textarea,
 select {
@@ -202,6 +209,7 @@ select:focus {
 input::placeholder,
 textarea::placeholder {
   color: var(--neutral);
+}
 }
 
 label {
