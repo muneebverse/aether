@@ -26,8 +26,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-aether-deep-teal text-sky-white border-t-4 border-aether-bright-cyan/30">
-      <div className="container-aether py-14 sm:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-x-8 gap-y-10 mb-14">
+      <div className="container-aether py-16 sm:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-x-8 gap-y-10 mb-12 sm:mb-14">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4 w-fit">
