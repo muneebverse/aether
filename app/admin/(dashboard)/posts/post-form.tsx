@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import ContentEditor from '@/components/admin/ContentEditor'
 import { FormGroup, FormInput, FormTextarea, FormSelect, FormButtons } from '@/components/admin-form-components'
 
 type PostData = {
@@ -108,14 +109,13 @@ export default function PostForm({
           rows={2}
         />
 
-        <FormTextarea
-          label="Content"
-          value={formData.content}
-          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setFormData({ ...formData, content: e.target.value })}
-          rows={12}
-          required
-          className="font-mono text-sm"
-        />
+<div>
+  <label className="block text-sm font-medium mb-2">Content</label>
+  <ContentEditor
+    content={formData.content}
+    onChange={(html) => setFormData({ ...formData, content: html })}
+  />
+</div>
 
         <FormInput
           label="Cover image URL"

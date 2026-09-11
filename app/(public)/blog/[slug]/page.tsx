@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CalendarDays, ArrowLeft } from 'lucide-react';
 import { createClient } from '@/lib/supabase-server';
+import DOMPurify from 'isomorphic-dompurify';
 
 // Individual blog post page. Previously /blog linked to /blog/[id] but this
 // route didn't exist at all — every "Read Article" link 404'd. This fixes
@@ -78,8 +79,8 @@ export default async function BlogPostPage({
             </p>
           )}
           <div
-            className="prose max-w-none text-deep-ink leading-relaxed whitespace-pre-wrap"
-            dangerouslySetInnerHTML={{ __html: post.content || '' }}
+            className="prose prose-lg max-w-none text-deep-ink leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content || '') }}
           />
 
           <div className="mt-12 pt-8 border-t border-aether-electric-teal/10">
