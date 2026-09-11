@@ -2,12 +2,16 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CalendarDays, ArrowLeft } from 'lucide-react';
 import { createClient } from '@/lib/supabase-server';
-import DOMPurify from 'isomorphic-dompurify';
+import DOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
 
 // Individual blog post page. Previously /blog linked to /blog/[id] but this
 // route didn't exist at all — every "Read Article" link 404'd. This fixes
 // that and pulls the real post content from the `posts` table.
 export const revalidate = 0;
+
+const window = new JSDOM('').window;
+const purify = DOMPurify(window as unknown as Window & typeof globalThis);
 
 export default async function BlogPostPage({
   params,
@@ -80,7 +84,7 @@ export default async function BlogPostPage({
           )}
           <div
             className="prose prose-lg max-w-none text-deep-ink leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content || '') }}
+            dangerouslySetInnerHTML={{ __html: purify.sanitize(post.content || '') }}
           />
 
           <div className="mt-12 pt-8 border-t border-aether-electric-teal/10">
