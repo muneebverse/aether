@@ -18,85 +18,102 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
-  const supabase = await createClient();
+  try {
+    const { slug } = await params;
+    const supabase = await createClient();
 
-  const { data: post } = await supabase
-    .from('posts')
-    .select('*')
-    .eq('slug', slug)
-    .eq('status', 'published')
-    .single();
+    const { data: post, error: dbError } = await supabase
+      .from('posts')
+      .select('*')
+      .eq('slug', slug)
+      .eq('status', 'published')
+      .single();
 
-  if (!post) {
-    notFound();
-  }
+    if (dbError) {
+      console.error('BLOG POST DB ERROR:', dbError);
+    }
 
-  const publishedDate = post.published_at
-    ? new Date(post.published_at).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
-    : '';
+    if (!post) {
+      notFound();
+    }
 
-  return (
-    <article className="animate-fade-in-up">
-      <section className="bg-aether-electric-teal text-sky-white py-16 lg:py-20">
-        <div className="container-aether max-w-3xl">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sky-white/80 hover:text-sky-white text-sm mb-6 transition-colors"
-          >
-            <ArrowLeft size={16} /> Back to Blog
-          </Link>
-          <h1 className="text-3xl lg:text-5xl font-display font-bold mb-4 text-sky-white">
-            {post.title}
-          </h1>
-          {publishedDate && (
-            <div className="flex items-center gap-2 text-sm text-sky-white/80">
-              <CalendarDays size={16} />
-              <span>{publishedDate}</span>
-            </div>
-          )}
-        </div>
-      </section>
+    const publishedDate = post.published_at
+      ? new Date(post.published_at).toLocaleDateString('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+        })
+      : '';
 
-      {post.cover_image_url && (
-        <div className="container-aether max-w-3xl -mt-8 sm:-mt-10">
-          <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={post.cover_image_url}
-              alt={post.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      )}
+    let sanitizedContent = '';
+    try {
+      sanitizedContent = purify.sanitize(post.content || '');
+    } catch (sanitizeErr) {
+      console.error('BLOG POST SANITIZE ERROR:', sanitizeErr);
+      throw sanitizeErr;
+    }
 
-      <section className="py-16 section-spacing">
-        <div className="container-aether max-w-3xl">
-          {post.excerpt && (
-            <p className="text-lg text-deep-ink/70 mb-8 leading-relaxed italic">
-              {post.excerpt}
-            </p>
-          )}
-          <div
-            className="prose prose-lg max-w-none text-deep-ink leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: purify.sanitize(post.content || '') }}
-          />
-
-          <div className="mt-12 pt-8 border-t border-aether-electric-teal/10">
+    return (
+      <article className="animate-fade-in-up">
+        <section className="bg-aether-electric-teal text-sky-white py-16 lg:py-20">
+          <div className="container-aether max-w-3xl">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-aether-electric-teal font-600 hover:text-aether-bright-cyan transition-colors"
+              className="inline-flex items-center gap-2 text-sky-white/80 hover:text-sky-white text-sm mb-6 transition-colors"
             >
-              <ArrowLeft size={16} /> Back to all articles
+              <ArrowLeft size={16} /> Back to Blog
             </Link>
+            <h1 className="text-3xl lg:text-5xl font-display font-bold mb-4 text-sky-white">
+              {post.title}
+            </h1>
+            {publishedDate && (
+              <div className="flex items-center gap-2 text-sm text-sky-white/80">
+                <CalendarDays size={16} />
+                <span>{publishedDate}</span>
+              </div>
+            )}
           </div>
-        </div>
-      </section>
-    </article>
-  );
+        </section>
+
+        {post.cover_image_url && (
+          <div className="container-aether max-w-3xl -mt-8 sm:-mt-10">
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={post.cover_image_url}
+                alt={post.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        )}
+
+        <section className="py-16 section-spacing">
+          <div className="container-aether max-w-3xl">
+            {post.excerpt && (
+              <p className="text-lg text-deep-ink/70 mb-8 leading-relaxed italic">
+                {post.excerpt}
+              </p>
+            )}
+            <div
+              className="prose prose-lg max-w-none text-deep-ink leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+            />
+
+            <div className="mt-12 pt-8 border-t border-aether-electric-teal/10">
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 text-aether-electric-teal font-600 hover:text-aether-bright-cyan transition-colors"
+              >
+                <ArrowLeft size={16} /> Back to all articles
+              </Link>
+            </div>
+          </div>
+        </section>
+      </article>
+    );
+  } catch (err) {
+    console.error('BLOG POST PAGE CRASH:', err);
+    throw err;
+  }
 }
