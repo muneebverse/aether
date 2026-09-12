@@ -38,6 +38,17 @@ export default function PortfolioForm({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Adds https:// when a URL is typed without a protocol (e.g. "myportfolio.com"),
+  // so it doesn't get treated as a path relative to the current site.
+  // Only applied to project_url, since that's the one typed in freely.
+  // image_url will come from a file upload later, which already returns a full URL.
+  function normalizeUrl(url: string): string {
+    const trimmed = url.trim();
+    if (!trimmed) return trimmed;
+    const hasProtocol = /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(trimmed);
+    return hasProtocol ? trimmed : `https://${trimmed}`;
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
@@ -48,7 +59,7 @@ export default function PortfolioForm({
       description,
       tech_tags: techTags.split(',').map((t) => t.trim()).filter(Boolean),
       image_url: imageUrl || null,
-      project_url: projectUrl || null,
+      project_url: projectUrl ? normalizeUrl(projectUrl) : null,
       category,
       order_index: orderIndex,
       status,
