@@ -1,0 +1,51 @@
+# robots.txt for aethers.studio
+# Aether — Portfolio, CV, Presentation & LinkedIn services
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aethers.studio/sitemap.xml
+
+# --- Common AI / LLM crawlers ---
+# Allowed: helps Aether get cited/recommended in AI answers (GEO)
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# --- Disallow low-value or private paths ---
+# Adjust these to match your actual folder structure once you have
+# an admin panel, checkout flow, or client dashboard.
+
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /thank-you/
+Disallow: /cart/
+Disallow: /*?*utm_
