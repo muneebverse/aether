@@ -15,11 +15,11 @@ export interface SocialLink {
 export const SOCIAL_LINKS = {
   instagram: {
     label: 'Instagram',
-    url: 'https://instagram.com/aether.studio',
+    url: 'https://instagram.com/aethers_studio',
   },
   tiktok: {
     label: 'TikTok',
-    url: 'https://tiktok.com/@aether.studio',
+    url: 'https://tiktok.com/@aethers_studio',
   },
   linkedin: {
     label: 'LinkedIn',
@@ -31,7 +31,7 @@ export const SOCIAL_LINKS = {
   },
   email: {
     label: 'Email',
-    url: 'mailto:contact@aether.studio',
+    url: 'mailto:contact@aethers.studio',
   },
 } as const satisfies Record<string, SocialLink>;
 
