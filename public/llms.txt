@@ -1,24 +1,21 @@
 # Aether
 
-> Aether is a digital services studio helping students and early-career professionals launch their careers online — through portfolio websites, ATS-optimized CVs, presentation design, and LinkedIn optimization. Based in Pakistan, serving clients remotely.
+> Aether helps engineers and early-career professionals get taken seriously — through portfolio websites, ATS-optimized CVs, presentation design, and LinkedIn optimization. Based in Pakistan, serving clients remotely, 5-7 day turnaround with revisions included.
 
-Aether was built by a mechanical engineering student who understands the gap between having skills and being able to present them. Every service is designed to turn raw talent into something that gets noticed by recruiters, clients, and employers.
+Every order is reviewed and delivered personally — no account managers, no outsourcing. Built for people who have real skills but need help presenting them in a way that gets past filters and into the room.
 
 ## Services
 
-- [Portfolio & Websites](https://aethers.studio/services/portfolio-websites): Custom personal portfolio and small business websites, PKR 5,999–17,999, built to showcase real work and convert visitors into opportunities.
-- [CV & Career Docs](https://aethers.studio/services/cv-career-docs): ATS-optimized CVs and career documents, PKR 1,999–7,999, written to pass automated screening and stand out to human recruiters.
-- [Presentations & Slide Decks](https://aethers.studio/services/presentations): Professional presentation design, PKR 999–3,999, for academic, business, and pitch use cases.
-- [LinkedIn Optimization](https://aethers.studio/services/linkedin-optimization): Full LinkedIn profile optimization, PKR 1,499, covering headline, summary, and keyword positioning for recruiter visibility.
+- [All Services](https://www.aethers.studio/services): Portfolio & Websites, CV & Career Docs, Presentations & Slide Decks, and LinkedIn Optimization — full breakdown of what's included in each.
+- [Business Websites](https://www.aethers.studio/restaurant-websites): Custom Next.js websites for restaurants and small businesses.
+- [Pricing](https://www.aethers.studio/pricing): Full pricing across all service tiers.
+- [Get Started](https://www.aethers.studio/request): Start a new order or request.
 
 ## Pages
 
-- [About](https://aethers.studio/about): Who Aether is and the story behind the studio.
-- [Pricing](https://aethers.studio/pricing): Full pricing breakdown across all four services.
-- [Blog](https://aethers.studio/blog): Guides on CVs, portfolios, LinkedIn, and career positioning.
-- [Contact](https://aethers.studio/contact): How to get in touch and request a service.
-
-## Optional
-
-- [FAQ](https://aethers.studio/faq): Common questions about turnaround time, revisions, and payment.
-- [Testimonials](https://aethers.studio/testimonials): Client feedback and results.
+- [About](https://www.aethers.studio/about): Who Aether is and the story behind the studio.
+- [Our Work](https://www.aethers.studio/portfolio): Portfolio of past client projects.
+- [Blog](https://www.aethers.studio/blog): Guides on CVs, portfolios, LinkedIn, and career positioning.
+- [Resources](https://www.aethers.studio/resources): Free resources and guides.
+- [Contact](https://www.aethers.studio/contact): How to get in touch.
+- [Track Order](https://www.aethers.studio/track): Check the status of an existing order.
