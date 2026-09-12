@@ -135,11 +135,11 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-sky-white/60">
             <p>&copy; {currentYear} AETHER. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link href="/contact" className="hover:text-aether-bright-cyan transition-colors">
-                Privacy Questions
+              <Link href="/privacy" className="hover:text-aether-bright-cyan transition-colors">
+                Privacy Policy
               </Link>
-              <Link href="/contact" className="hover:text-aether-bright-cyan transition-colors">
-                Terms Questions
+              <Link href="/terms" className="hover:text-aether-bright-cyan transition-colors">
+                Terms & Conditions
               </Link>
             </div>
           </div>
