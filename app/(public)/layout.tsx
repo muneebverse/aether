@@ -6,6 +6,7 @@ import { RequestModalProvider } from '@/contexts/RequestModalContext';
 import '../globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.aethers.studio'),
   title: 'AETHER | Elevate to Clarity',
   description: 'Transform your professional application from invisible to unmissable. Resume optimization, ATS enhancement, and career clarity.',
   keywords: ['Resume', 'ATS', 'Career', 'Professional', 'Job Application'],
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     description: 'Transform your professional application from invisible to unmissable.',
     images: [
       {
-        url: 'https://aethers.studio/og-image.jpg',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
       },
